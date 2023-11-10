@@ -14,8 +14,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build iOS App
-        run: xcodebuild \
-          -scheme ProductivityTest \
-          -sdk iphonesimulator \
-          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
+        run: xcodebuild \ 
+          -scheme ProductivityTest \ 
+          -sdk iphonesimulator \ 
+          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \ 
           -configuration Release build
