@@ -1,0 +1,11 @@
+//
+//  Acceptance.xcconfig
+//  ProductivityAcceptance
+//
+//  Created by Javier Fernandes on 10/11/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) ACCEPTANCE_ENV
