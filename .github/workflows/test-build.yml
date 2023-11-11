@@ -43,16 +43,13 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Build app
-        run: xcodebuild -scheme ProductivityTest -sdk iphoneos -configuration Release build
-
-      - name: Build and archive app
+      - name: Build and archive Test app
         run: xcodebuild -scheme ProductivityTest -sdk iphoneos -configuration Release archive -archivePath $PWD/build/ProductivityTest.xcarchive
 
-      - name: Export the archive to an IPA
-        run: xcodebuild -exportArchive -archivePath $PWD/build/ProductivityTest.xcarchive -exportOptionsPlist exportOptions.plist -exportPath $PWD/build -allowProvisioningUpdates
+      - name: Export the Test archive to an IPA
+        run: xcodebuild -exportArchive -archivePath $PWD/build/ProductivityTest.xcarchive -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist -exportPath $PWD/build -allowProvisioningUpdates
 
-      - name: Upload the IPA to App Store Connect
+      - name: Upload the Test IPA to App Store Connect
         env:
           APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
