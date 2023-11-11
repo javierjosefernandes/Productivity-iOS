@@ -55,6 +55,14 @@ jobs:
         run: |
           echo "$API_KEY_BASE64" | base64 --decode > $RUNNER_TEMP/AuthKey.p8
 
+      - name: List files in RUNNER_TEMP
+        run: |
+          ls -l $RUNNER_TEMP
+
+      - name: Print path of AuthKey
+        run: |
+          echo "The path of the AuthKey.p8 is $RUNNER_TEMP/AuthKey.p8"
+
       - name: Upload the Test IPA to App Store Connect
         env:
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
