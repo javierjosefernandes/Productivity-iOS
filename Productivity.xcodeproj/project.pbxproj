@@ -67,6 +67,9 @@
 		D0306C1F2AFE60E500238219 /* Acceptance.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Acceptance.xcconfig; sourceTree = "<group>"; };
 		D0306C212AFE60F800238219 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		D0306C262AFE655D00238219 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		D0FE1CF02AFFD3DC00CB4BBF /* ExportOptionsTest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptionsTest.plist; sourceTree = "<group>"; };
+		D0FE1CF12AFFD3EC00CB4BBF /* ExportOptionsAcceptance.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptionsAcceptance.plist; sourceTree = "<group>"; };
+		D0FE1CF22AFFD40F00CB4BBF /* ExportOptionsProduction.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptionsProduction.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,9 @@
 				D0306C172AFE604B00238219 /* ConfigTest.plist */,
 				D0306C192AFE605B00238219 /* ConfigAcceptance.plist */,
 				D0306C1B2AFE607300238219 /* ConfigProduction.plist */,
+				D0FE1CF02AFFD3DC00CB4BBF /* ExportOptionsTest.plist */,
+				D0FE1CF12AFFD3EC00CB4BBF /* ExportOptionsAcceptance.plist */,
+				D0FE1CF22AFFD40F00CB4BBF /* ExportOptionsProduction.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
