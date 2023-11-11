@@ -49,22 +49,15 @@ jobs:
       - name: Export the Test archive to an IPA
         run: xcodebuild -exportArchive -archivePath $PWD/build/ProductivityTest.xcarchive -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist -exportPath $PWD/build -allowProvisioningUpdates
 
-      - name: Decode APP_STORE_CONNECT_API_KEY file
+      - name: Decode auth. api key file and save it
         env:
           API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
         run: |
-          echo "$API_KEY_BASE64" | base64 --decode > $RUNNER_TEMP/AuthKey.p8
+          ls ~/private_keys
+          echo -n "$API_KEY_BASE64" | base64 --decode --output ~/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}.p8
+          echo "After saving: "
+          ls ~/private_keys
 
-      - name: List files in RUNNER_TEMP
+      - name: Validate app
         run: |
-          ls -l $RUNNER_TEMP
-
-      - name: Print path of AuthKey
-        run: |
-          echo "The path of the AuthKey.p8 is $RUNNER_TEMP/AuthKey.p8"
-
-      - name: Verify AuthKey Authentication
-        env:
-          APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
-        run: |
-          xcrun altool --list-providers --apiKey $RUNNER_TEMP/AuthKey --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID
+          xcrun altool — validate-app -f --file $PWD/build/ProductivityTest.ipa -t ios — apiKey ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }} — apiIssuer ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
