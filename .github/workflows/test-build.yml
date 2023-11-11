@@ -63,8 +63,8 @@ jobs:
         run: |
           echo "The path of the AuthKey.p8 is $RUNNER_TEMP/AuthKey.p8"
 
-      - name: Upload the Test IPA to App Store Connect
+      - name: Verify AuthKey Authentication
         env:
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
         run: |
-          xcrun altool --upload-app --type ios --file $PWD/build/ProductivityTest.ipa --apiKey @${RUNNER_TEMP}/AuthKey --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
+          xcrun altool --list-providers --apiKey @$RUNNER_TEMP/AuthKey.p8 --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID
