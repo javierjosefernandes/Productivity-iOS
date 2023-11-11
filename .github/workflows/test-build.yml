@@ -49,9 +49,14 @@ jobs:
       - name: Export the Test archive to an IPA
         run: xcodebuild -exportArchive -archivePath $PWD/build/ProductivityTest.xcarchive -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist -exportPath $PWD/build -allowProvisioningUpdates
 
+      - name: Decode APP_STORE_CONNECT_API_KEY file
+        env:
+          API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
+        run: |
+          echo "$API_KEY_BASE64" | base64 --decode > $RUNNER_TEMP/AuthKey.p8
+
       - name: Upload the Test IPA to App Store Connect
         env:
-          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
         run: |
-          xcrun altool --upload-app --type ios --file $PWD/build/ProductivityTest.ipa --apiKey $APP_STORE_CONNECT_API_KEY --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
+          xcrun altool --upload-app --type ios --file $PWD/build/ProductivityTest.ipa --apiKey @${RUNNER_TEMP}/AuthKey.p8 --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
