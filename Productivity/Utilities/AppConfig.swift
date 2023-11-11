@@ -20,7 +20,7 @@ final class AppConfig: AppConfigurable {
     static let shared = AppConfig()
 
     private var settings: [String: Any]?
-    private let queue = DispatchQueue(label: "com.yourcompany.configuration", attributes: .concurrent)
+    private let queue = DispatchQueue(label: "com.javierfernandes.Productivity.configuration", attributes: .concurrent)
 
     private init() {
         loadSettings()
