@@ -21,38 +21,33 @@ final class AppConfig: AppConfigurable {
     static let shared = AppConfig()
 
     private var settings: [String: Any]?
-    private let queue = DispatchQueue(label: "com.javierfernandes.Productivity.configuration", attributes: .concurrent)
 
     private init() {
         loadSettings()
     }
 
     private func loadSettings() {
-        queue.sync(flags: .barrier) {
-            var resource: String?
+        var resource: String?
 
-            #if TEST_ENV
-            resource = "ConfigTest"
-            #elseif ACCEPTANCE_ENV
-            resource = "ConfigAcceptance"
-            #else
-            resource = "ConfigProduction"
-            #endif
+        #if TEST_ENV
+        resource = "ConfigTest"
+        #elseif ACCEPTANCE_ENV
+        resource = "ConfigAcceptance"
+        #else
+        resource = "ConfigProduction"
+        #endif
 
-            guard let resource = resource,
-                  let path = Bundle.main.path(forResource: resource, ofType: "plist"),
-                  let settingsDictionary = NSDictionary(contentsOfFile: path) as? [String: Any] else {
-                fatalError("Unable to load the configuration plist file.")
-            }
-
-            settings = settingsDictionary
+        guard let resource = resource,
+              let path = Bundle.main.path(forResource: resource, ofType: "plist"),
+              let settingsDictionary = NSDictionary(contentsOfFile: path) as? [String: Any] else {
+            fatalError("Unable to load the configuration plist file.")
         }
+
+        settings = settingsDictionary
     }
 
     func value<T>(forKey key: String) -> T? {
-        queue.sync {
-            settings?[key] as? T
-        }
+        settings?[key] as? T
     }
 
     func stringValue(forKey key: String) -> String? {
