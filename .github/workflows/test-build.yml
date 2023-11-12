@@ -52,17 +52,13 @@ jobs:
       - name: Decode App Connect Store API Key
         env:
           APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
-          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
-          FILE_PATH=$RUNNER_TEMP/AuthKey_${APP_STORE_CONNECT_API_KEY_ID}.p8
+          FILE_PATH=$RUNNER_TEMP/AuthKey_6VRX37MANV.p8
           echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > $FILE_PATH
           echo "Decoded .p8 file is located at: $FILE_PATH"
 
       - name: Validate the Test IPA
         env:
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
-          APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
-          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
-          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > $RUNNER_TEMP/AuthKey_${APP_STORE_CONNECT_API_KEY_ID}.p8
-          xcrun altool --validate-app --type ios --file $PWD/build/ProductivityTest.ipa --apiKey @${RUNNER_TEMP}/AuthKey_${APP_STORE_CONNECT_API_KEY_ID} --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
+          xcrun altool --validate-app --type ios --file $PWD/build/ProductivityTest.ipa --apiKey @${RUNNER_TEMP}/AuthKey_6VRX37MANV --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
