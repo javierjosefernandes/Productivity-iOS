@@ -14,7 +14,7 @@ jobs:
           API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
           API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
-          echo "$API_KEY_BASE64" | base64 --decode > $RUNNER_TEMP/AuthKey_$API_KEY_ID.p8
+          echo "$API_KEY_BASE64" | base64 --decode > $RUNNER_TEMP/AuthKey_${API_KEY_ID}.p8
 
       - name: Increment build version
         run: |
