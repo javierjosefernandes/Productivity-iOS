@@ -221,6 +221,7 @@
 				D0306BC42AFE5B1600238219 /* Sources */,
 				D0306BC52AFE5B1600238219 /* Frameworks */,
 				D0306BC62AFE5B1600238219 /* Resources */,
+				D0A1A37B2B00F4B800CC6962 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -392,6 +393,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D0A1A37B2B00F4B800CC6962 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0306BC42AFE5B1600238219 /* Sources */ = {
@@ -591,6 +613,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Productivity/Preview Content\"";
 				DEVELOPMENT_TEAM = Y4PWVF3LZ8;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Productivity Test";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -630,6 +653,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Y4PWVF3LZ8;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Productivity Test";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
