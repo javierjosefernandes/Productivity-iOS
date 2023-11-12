@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  build_with_signing:
+  release:
     runs-on: macos-latest
 
     steps:
