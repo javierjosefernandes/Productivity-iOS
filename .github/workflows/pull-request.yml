@@ -20,16 +20,15 @@ jobs:
       - name: Install SwiftLint
         run: brew install swiftlint
 
-      - name: Run SwiftLint for Changed Files
+      - name: Git fetch base ref
         run: |
-          git fetch origin main:main || echo "Failed to fetch main branch"
-          CHANGED_SWIFT_FILES=$(git diff --name-only main...${{ github.sha }} | grep '\.swift$')
-          if [ -z "$CHANGED_SWIFT_FILES" ]; then
-            echo "No Swift files changed."
-          else
-            echo "$CHANGED_SWIFT_FILES" | xargs swiftlint lint --force-exclude --config .swiftlint.yml --use-script-input-files
-          fi
-        shell: bash
+          git fetch --prune --no-tags --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
+
+      - name: SwiftLint
+        uses: ezraberch/action-swiftlint@3.2.3
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
+          DIFF_HEAD: HEAD
 
       - name: Install Apple certificate and provisioning profile
         env:
