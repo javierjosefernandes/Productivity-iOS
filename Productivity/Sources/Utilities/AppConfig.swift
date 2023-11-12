@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol AppConfigurable {
 
     func stringValue(forKey key: String) -> String?
