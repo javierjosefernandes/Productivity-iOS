@@ -46,6 +46,15 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: Run SwiftLint for Changed Files
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          git diff --name-only ${{ github.base_ref }} | grep '\.swift$' | xargs swiftlint lint --path
+        shell: bash
+
       - name: Run unit tests with code coverage
         run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
 
