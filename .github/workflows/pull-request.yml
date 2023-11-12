@@ -10,7 +10,21 @@ concurrency:
   group: ci-${{ github.head_ref }}-pr
 
 jobs:
-  build_with_signing:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Git Fetch Base ref
+        run: |
+          git fetch --prune --no-tags --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
+      - name: GitHub Actions for SwiftLint (Only files changed in the PR)
+        uses: ezraberch/action-swiftlint@3.2.3
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
+          DIFF_HEAD: HEAD
+
+  test:
     runs-on: macos-latest
 
     steps:
