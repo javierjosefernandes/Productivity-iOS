@@ -14,7 +14,9 @@ jobs:
           API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
           API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
-          echo "$API_KEY_BASE64" | base64 --decode > $RUNNER_TEMP/AuthKey_${API_KEY_ID}.p8
+          FILE_PATH=$RUNNER_TEMP/AuthKey_${API_KEY_ID}.p8
+          echo "$API_KEY_BASE64" | base64 --decode > $FILE_PATH
+          echo "Decoded .p8 file is located at: $FILE_PATH"
 
       - name: Increment build version
         run: |
