@@ -46,6 +46,9 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
+      - name: Run unit tests with code coverage
+        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
+
       - name: Build and archive app
         run: xcodebuild -scheme ProductivityTest -sdk iphoneos -configuration Release archive -archivePath $PWD/build/ProductivityTest.xcarchive
 
