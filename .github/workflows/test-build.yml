@@ -1,5 +1,8 @@
 name: Test build
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build_with_signing:
