@@ -14,7 +14,7 @@ jobs:
 
       - name: Increment build version
         run: |
-          agvtool new-version -all ${{ github.run_number }} --verbose
+          agvtool new-version -all ${{ github.run_number }}
           echo "New build number set to: ${{ github.run_number }}"
 
       - name: Install Apple certificate and provisioning profile
