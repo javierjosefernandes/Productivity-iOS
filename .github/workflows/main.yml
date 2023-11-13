@@ -47,9 +47,16 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
       - name: Run unit tests with code coverage
-        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -derivedDataPath Build/ -enableCodeCoverage YES clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -derivedDataPath . clean build test
 
-
+      - name: Get xcresult path
+        run: |
+          xcresult_path=$(find Logs/Test -name '*.xcresult' | sort | tail -n 1)
+          if [ -n "$xcresult_path" ]; then
+            echo "xcresult file located at: $xcresult_path"
+          else
+            echo "No xcresult file found."
+          fi
 
       # - name: Set up SonarScanner
       #   run: |
