@@ -49,16 +49,26 @@ jobs:
       - name: Run unit tests with code coverage
         run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -derivedDataPath Build/ clean build test
 
-      - name: Install Slather
-        run: gem install slather
-
-      - name: Generate code coverage report for SonarQube
+      - name: Rename and copy xcresult to temp directory
         run: |
           xcresult_path=$(find Build/Logs/Test -name '*.xcresult' | sort | tail -n 1)
           if [ -n "$xcresult_path" ]; then
-            slather coverage --sonarqube-xml --output-directory sonarqube-reports --scheme ProductivityTest --build-directory Build/ $xcresult_path
+            new_xcresult_name="TestResult.xcresult"
+            temp_path="$RUNNER_TEMP/$new_xcresult_name"
+            cp -R "$xcresult_path" "$temp_path"
+            echo "xcresult file renamed to $new_xcresult_name and copied to $RUNNER_TEMP"
           else
             echo "No xcresult file found."
+          fi
+
+      - name: Check Temp Directory for Renamed xcresult
+        run: |
+          new_xcresult_name="TestResult.xcresult"
+          temp_path="$RUNNER_TEMP/$new_xcresult_name"
+          if [ -e "$temp_path" ]; then
+            echo "$new_xcresult_name exists in $RUNNER_TEMP."
+          else
+            echo "$new_xcresult_name does not exist in $RUNNER_TEMP."
           fi
 
       # - name: Set up SonarScanner
