@@ -17,13 +17,6 @@ struct ContentView: View {
                         .padding()
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                }
-            }
         } detail: {
             Text("Select an item")
         }
