@@ -100,7 +100,8 @@ jobs:
             -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml \
             -Dsonar.c.file.suffixes=- \
             -Dsonar.cpp.file.suffixes=- \
-            -Dsonar.objc.file.suffixes=-
+            -Dsonar.objc.file.suffixes=- \
+            -Dsonar.inclusions=Productivity/Sources/**/*
 
       - name: Build and archive app
         run: xcodebuild -scheme ProductivityTest -sdk iphoneos -configuration Release archive -archivePath $PWD/build/ProductivityTest.xcarchive
