@@ -64,6 +64,9 @@
 		D0306C1F2AFE60E500238219 /* Acceptance.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Acceptance.xcconfig; sourceTree = "<group>"; };
 		D0306C212AFE60F800238219 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		D0306C262AFE655D00238219 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		D060B5CF2B02B842003FA39C /* InfoTest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoTest.plist; sourceTree = "<group>"; };
+		D060B5D02B02B85F003FA39C /* InfoAcceptance.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoAcceptance.plist; sourceTree = "<group>"; };
+		D060B5D12B02B8AD003FA39C /* InfoProduction.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoProduction.plist; sourceTree = "<group>"; };
 		D0A41D012B01280500AA785A /* AutoMockable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoMockable.stencil; sourceTree = "<group>"; };
 		D0A41D052B012A7100AA785A /* SourceryOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceryOutput.swift; sourceTree = "<group>"; };
 		D0FE1CF02AFFD3DC00CB4BBF /* ExportOptionsTest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptionsTest.plist; sourceTree = "<group>"; };
@@ -196,6 +199,9 @@
 				D0FE1CF02AFFD3DC00CB4BBF /* ExportOptionsTest.plist */,
 				D0FE1CF12AFFD3EC00CB4BBF /* ExportOptionsAcceptance.plist */,
 				D0FE1CF22AFFD40F00CB4BBF /* ExportOptionsProduction.plist */,
+				D060B5CF2B02B842003FA39C /* InfoTest.plist */,
+				D060B5D02B02B85F003FA39C /* InfoAcceptance.plist */,
+				D060B5D12B02B8AD003FA39C /* InfoProduction.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -568,7 +574,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -633,7 +639,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -668,6 +674,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Productivity/Configurations/Plist/InfoTest.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Productivity Test";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -709,6 +716,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Productivity/Configurations/Plist/InfoTest.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Productivity Test";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -824,7 +832,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Productivity/Preview Content\"";
 				DEVELOPMENT_TEAM = Y4PWVF3LZ8;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Productivity/Configurations/Plist/InfoAcceptance.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Productivity Acceptance";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -860,7 +870,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Productivity/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Productivity/Configurations/Plist/InfoAcceptance.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Productivity Acceptance";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -897,7 +909,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Productivity/Preview Content\"";
 				DEVELOPMENT_TEAM = Y4PWVF3LZ8;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Productivity/Configurations/Plist/InfoProduction.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Productivity;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -933,7 +947,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Productivity/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Productivity/Configurations/Plist/InfoProduction.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Productivity;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
