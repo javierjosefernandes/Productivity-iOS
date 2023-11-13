@@ -49,15 +49,17 @@ jobs:
       - name: Run unit tests with code coverage
         run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
 
-      - name: Generate coverage report
+      - name: Generate code coverage report
         run: |
-          xcrun llvm-cov export -format="lcov" -instr-profile "$(find . -name '*.profdata')" "$(find . -name '*.app')" > info.lcov
+          xcrun llvm-cov export -format="lcov" \
+            -instr-profile $(find . -name '*.profdata' | head -1) \
+            $(find . -name '*.app' -exec dirname {} \; | xargs -I{} find {} -name '*.swift' | xargs) > info.lcov
 
       - name: Set up SonarScanner
         run: |
           brew install sonar-scanner
 
-      - name: SonarCloud Scan
+      - name: SonarCloud scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
