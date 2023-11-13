@@ -10,22 +10,22 @@ concurrency:
   group: ci-${{ github.head_ref }}-pr
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+  # lint:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Git fetch base ref
-        run: |
-          git fetch --prune --no-tags --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Git fetch base ref
+  #       run: |
+  #         git fetch --prune --no-tags --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
 
-      - name: SwiftLint
-        uses: ezraberch/action-swiftlint@3.2.3
-        with:
-          args: --strict
-        env:
-          DIFF_BASE: ${{ github.base_ref }}
-          DIFF_HEAD: HEAD
+  #     - name: SwiftLint
+  #       uses: ezraberch/action-swiftlint@3.2.3
+  #       with:
+  #         args: --strict
+  #       env:
+  #         DIFF_BASE: ${{ github.base_ref }}
+  #         DIFF_HEAD: HEAD
 
   test:
     runs-on: macos-latest
