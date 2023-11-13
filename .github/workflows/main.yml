@@ -46,20 +46,20 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Install dependencies
+      - name: Install Slather
         run: gem install slather
 
       - name: Run unit tests with code coverage
         run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
+
+      - name: Run Slather
+        run: slather
 
       - name: Build and archive app
         run: xcodebuild -scheme ProductivityTest -sdk iphoneos -configuration Release archive -archivePath $PWD/build/ProductivityTest.xcarchive
 
       - name: Export archive to an IPA
         run: xcodebuild -exportArchive -archivePath $PWD/build/ProductivityTest.xcarchive -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist -exportPath $PWD/build -allowProvisioningUpdates
-
-      - name: Run Slather
-        run: slather
       
       - name: Decode App Connect Store API Key
         env:
