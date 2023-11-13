@@ -64,4 +64,55 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
       - name: Run unit tests with code coverage
-        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
+        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -derivedDataPath Build/ -enableCodeCoverage YES
+
+      - name: Copy xcresult to temp directory
+        run: |
+          xcresult_path=$(find Build/Logs/Test -name '*.xcresult' | sort | tail -n 1)
+          if [ -n "$xcresult_path" ]; then
+            new_xcresult_name="TestResult.xcresult"
+            temp_path="$RUNNER_TEMP/$new_xcresult_name"
+            cp -R "$xcresult_path" "$temp_path"
+            echo "xcresult file renamed to $new_xcresult_name and copied to $RUNNER_TEMP"
+          else
+            echo "No xcresult file found."
+          fi
+
+      - name: Check temp directory for copied xcresult
+        run: |
+          new_xcresult_name="TestResult.xcresult"
+          temp_path="$RUNNER_TEMP/$new_xcresult_name"
+          if [ -e "$temp_path" ]; then
+            echo "$new_xcresult_name exists in $RUNNER_TEMP."
+          else
+            echo "$new_xcresult_name does not exist in $RUNNER_TEMP."
+          fi
+
+      - name: Download xccov-to-sonarqube-generic.sh script
+        run: curl -o xccov-to-sonarqube-generic.sh -L https://raw.githubusercontent.com/SonarSource/sonar-scanning-examples/master/swift-coverage/swift-coverage-example/xccov-to-sonarqube-generic.sh
+
+      - name: Make xccov-to-sonarqube-generic.sh executable
+        run: chmod +x xccov-to-sonarqube-generic.sh
+
+      - name: Convert xcresult to SonarQube Generic Coverage
+        run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/TestResult.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
+
+      - name: Set up SonarScanner
+        run: brew install sonar-scanner
+
+      - name: SonarCloud scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_ORGANIZATION_KEY: ${{ secrets.SONAR_ORGANIZATION_KEY }}
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+            -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=$SONAR_TOKEN \
+            -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml \
+            -Dsonar.c.file.suffixes=- \
+            -Dsonar.cpp.file.suffixes=- \
+            -Dsonar.objc.file.suffixes=-
