@@ -49,8 +49,14 @@ jobs:
       - name: Run unit tests with code coverage
         run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
 
+      - name: Find Coverage.profdata file
+        run: |
+          profdata_path=$(find ProductivityTest.xcresult -name "Coverage.profdata")
+          echo "Found profdata file at: $profdata_path"
+          echo "PROFDATA_PATH=$profdata_path" >> $GITHUB_ENV
+
       - name: Generate code coverage report
-        run: xcrun llvm-cov export -format="lcov" -instr-profile ProductivityTest.xcresult/.../Coverage.profdata ProductivityTest.app/ProductivityTest -o coverage.lcov
+        run: xcrun llvm-cov export -format=lcov -instr-profile ${{ env.PROFDATA_PATH }} ProductivityTest.app/ProductivityTest > coverage.lcov
 
       - name: Set up SonarScanner
         run: |
