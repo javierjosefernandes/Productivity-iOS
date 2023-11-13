@@ -47,7 +47,7 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
       - name: Run unit tests with code coverage
-        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -derivedDataPath . clean build test
+        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -derivedDataPath Build/ clean build test
 
       - name: Get xcresult path
         run: |
