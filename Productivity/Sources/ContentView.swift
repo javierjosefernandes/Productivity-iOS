@@ -17,10 +17,6 @@ struct ContentView: View {
                         .padding()
                 }
             }
-            .toolbar {
-                ToolbarItem {
-                }
-            }
         } detail: {
             Text("Select an item")
         }
