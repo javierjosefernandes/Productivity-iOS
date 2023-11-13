@@ -47,34 +47,25 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
       - name: Run unit tests with code coverage
-        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
+        run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES -derivedDataPath . clean build test
 
-      - name: Find Coverage.profdata file
-        run: |
-          profdata_path=$(find . -name "Coverage.profdata")
-          echo "Found profdata file at: $profdata_path"
-          echo "PROFDATA_PATH=$profdata_path" >> $GITHUB_ENV
+      # - name: Set up SonarScanner
+      #   run: |
+      #     brew install sonar-scanner
 
-      - name: Generate code coverage report
-        run: xcrun llvm-cov export -format=lcov -instr-profile ${{ env.PROFDATA_PATH }} ProductivityTest.app/ProductivityTest > coverage.lcov
-
-      - name: Set up SonarScanner
-        run: |
-          brew install sonar-scanner
-
-      - name: SonarCloud scan
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-          SONAR_ORGANIZATION_KEY: ${{ secrets.SONAR_ORGANIZATION_KEY }}
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=$SONAR_PROJECT_KEY \
-            -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
-            -Dsonar.sources=. \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=$SONAR_TOKEN \
-            -Dsonar.coverageReportPaths=info.lcov
+      # - name: SonarCloud scan
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+      #     SONAR_ORGANIZATION_KEY: ${{ secrets.SONAR_ORGANIZATION_KEY }}
+      #   run: |
+      #     sonar-scanner \
+      #       -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+      #       -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
+      #       -Dsonar.sources=. \
+      #       -Dsonar.host.url=https://sonarcloud.io \
+      #       -Dsonar.login=$SONAR_TOKEN \
+      #       -Dsonar.coverageReportPaths=info.lcov
 
       # - name: Build and archive app
       #   run: xcodebuild -scheme ProductivityTest -sdk iphoneos -configuration Release archive -archivePath $PWD/build/ProductivityTest.xcarchive
