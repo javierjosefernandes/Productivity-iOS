@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct ProductivityApp: App {
 
-    init {
+    init() {
         let apiKey = "1234567890ABCDEFG"
         print(apiKey)
     }
