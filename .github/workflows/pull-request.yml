@@ -96,7 +96,7 @@ jobs:
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x xccov-to-sonarqube-generic.sh
 
-      - name: Convert xcresult to SonarQube Generic Coverage
+      - name: Convert xcresult to SonarQube generic coverage
         run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/TestResult.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
 
       - name: Set up SonarScanner
