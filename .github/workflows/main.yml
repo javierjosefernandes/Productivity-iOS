@@ -96,6 +96,7 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN \
             -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml
+            -Dsonar.exclusions=**/*.c,**/*.cpp,**/*.h,**/*.m,**/*.mm
 
       - name: Build and archive app
         run: xcodebuild -scheme ProductivityTest -sdk iphoneos -configuration Release archive -archivePath $PWD/build/ProductivityTest.xcarchive
