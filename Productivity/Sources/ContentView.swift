@@ -12,10 +12,9 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             List {
-                if let envName = AppConfig.shared.stringValue(forKey: "EnvironmentName") {
-                    Text(envName)
-                        .padding()
-                }
+                Text("Item 1")
+                Text("Item 2")
+                Text("Item 3")
             }
         } detail: {
             Text("Select an item")
