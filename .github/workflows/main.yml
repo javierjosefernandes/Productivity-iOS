@@ -49,6 +49,9 @@ jobs:
       - name: Run unit tests with code coverage
         run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -enableCodeCoverage YES
 
+      - name: List profdata files
+        run: find $(pwd) -name '*.profdata'
+
       - name: Generate code coverage report
         run: |
           PROFILE=$(find $(pwd) -name '*.profdata' | head -1)
