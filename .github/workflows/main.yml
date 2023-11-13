@@ -51,7 +51,7 @@ jobs:
 
       - name: Find Coverage.profdata file
         run: |
-          profdata_path=$(find ProductivityTest.xcresult -name "Coverage.profdata")
+          profdata_path=$(find . -name "Coverage.profdata")
           echo "Found profdata file at: $profdata_path"
           echo "PROFDATA_PATH=$profdata_path" >> $GITHUB_ENV
 
