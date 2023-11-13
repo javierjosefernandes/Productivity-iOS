@@ -71,9 +71,17 @@ jobs:
             echo "$new_xcresult_name does not exist in $RUNNER_TEMP."
           fi
 
-      # - name: Set up SonarScanner
-      #   run: |
-      #     brew install sonar-scanner
+      - name: Download xccov-to-sonarqube-generic.sh script
+        run: curl -o xccov-to-sonarqube-generic.sh -L https://raw.githubusercontent.com/SonarSource/sonar-scanning-examples/master/swift-coverage/swift-coverage-example/xccov-to-sonarqube-generic.sh
+
+      - name: Make xccov-to-sonarqube-generic.sh executable
+        run: chmod +x xccov-to-sonarqube-generic.sh
+
+      - name: Convert xcresult to SonarQube Generic Coverage
+        run: ./xccov-to-sonarqube-generic.sh TestResult.xcresult > sonarqube-generic-coverage.xml
+
+      - name: Set up SonarScanner
+        run: brew install sonar-scanner
 
       # - name: SonarCloud scan
       #   env:
