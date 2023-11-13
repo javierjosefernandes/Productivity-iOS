@@ -49,11 +49,14 @@ jobs:
       - name: Run unit tests with code coverage
         run: xcodebuild test -scheme ProductivityTest -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' -derivedDataPath Build/ clean build test
 
-      - name: Get xcresult path
+      - name: Install Slather
+        run: gem install slather
+
+      - name: Generate code coverage report for SonarQube
         run: |
-          xcresult_path=$(find Logs/Test -name '*.xcresult' | sort | tail -n 1)
+          xcresult_path=$(find Build/Logs/Test -name '*.xcresult' | sort | tail -n 1)
           if [ -n "$xcresult_path" ]; then
-            echo "xcresult file located at: $xcresult_path"
+            slather coverage --sonarqube-xml --output-directory sonarqube-reports --scheme ProductivityTest --build-directory Build/ $xcresult_path
           else
             echo "No xcresult file found."
           fi
