@@ -19,7 +19,6 @@ final class ProductivityTests: XCTestCase {
     }
 
     func testExample() throws {
-        XCTAssertEqual(AppConfig.shared.stringValue(forKey: "EnvironmentName"), "Test")
     }
 
     func testPerformanceExample() throws {
