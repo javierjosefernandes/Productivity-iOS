@@ -48,7 +48,7 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Create configuration file
+      - name: Create configuration properties file
         run: cp Productivity/Configurations/Plist/ConfigTemplate.plist Productivity/Configurations/Plist/ConfigTest.plist
 
       - name: Fill in configuration properties
