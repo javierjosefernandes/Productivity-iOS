@@ -67,6 +67,7 @@
 		D060B5CF2B02B842003FA39C /* InfoTest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoTest.plist; sourceTree = "<group>"; };
 		D060B5D02B02B85F003FA39C /* InfoAcceptance.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoAcceptance.plist; sourceTree = "<group>"; };
 		D060B5D12B02B8AD003FA39C /* InfoProduction.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoProduction.plist; sourceTree = "<group>"; };
+		D0733C5C2B03763E00EA3867 /* ConfigTemplate.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ConfigTemplate.plist; sourceTree = "<group>"; };
 		D0A41D012B01280500AA785A /* AutoMockable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoMockable.stencil; sourceTree = "<group>"; };
 		D0A41D052B012A7100AA785A /* SourceryOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceryOutput.swift; sourceTree = "<group>"; };
 		D0FE1CF02AFFD3DC00CB4BBF /* ExportOptionsTest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptionsTest.plist; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 		D0306C162AFE5FC200238219 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				D0733C5C2B03763E00EA3867 /* ConfigTemplate.plist */,
 				D0306C172AFE604B00238219 /* ConfigTest.plist */,
 				D0306C192AFE605B00238219 /* ConfigAcceptance.plist */,
 				D0306C1B2AFE607300238219 /* ConfigProduction.plist */,
