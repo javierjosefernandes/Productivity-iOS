@@ -48,6 +48,12 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
+      - name: Create configuration file
+        run: cp Productivity/Configurations/Plist/ConfigTemplate.plist Productivity/Configurations/Plist/ConfigTest.plist
+
+      - name: Fill in configuration properties
+        run: /usr/libexec/PlistBuddy -c "Set :EnvironmentName 'Test'" Productivity/Configurations/Plist/ConfigTest.plist
+
       - name: Run unit tests with code coverage
         run: |
           xcodebuild test \
