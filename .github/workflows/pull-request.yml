@@ -23,10 +23,12 @@ jobs:
         run: swiftlint --strict
 
       - name: Run unit tests with code coverage
-        run: xcodebuild test -scheme ProductivityTest \
-          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-          -derivedDataPath Build/ \
-          -enableCodeCoverage YES
+        run: |
+          xcodebuild test \
+            -scheme ProductivityTest \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
+            -derivedDataPath Build/ \
+            -enableCodeCoverage YES
 
       - name: Copy xcresult to temp directory
         run: |
