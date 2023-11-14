@@ -12,15 +12,15 @@ protocol AppConfigurable {
 
     func stringValue(forKey key: String) -> String?
     func intValue(forKey key: String) -> Int?
-    func boolValue(forKey key: String) -> Bool?
+    func boolValue(forKey key: String) -> Bool
 
 }
 
 final class AppConfig: AppConfigurable {
 
-    static let shared = AppConfig()
+    static let shared: AppConfigurable = AppConfig()
 
-    private var settings: [String: Any]?
+    private var settings: [String: Any] = [:]
 
     private init() {
         loadSettings()
@@ -37,9 +37,11 @@ final class AppConfig: AppConfigurable {
         resource = "ConfigProduction"
         #endif
 
-        guard let resource = resource,
-              let path = Bundle.main.path(forResource: resource, ofType: "plist"),
-              let settingsDictionary = NSDictionary(contentsOfFile: path) as? [String: Any] else {
+        guard
+            let resource,
+            let path = Bundle.main.path(forResource: resource, ofType: "plist"),
+            let settingsDictionary = NSDictionary(contentsOfFile: path) as? [String: Any]
+        else {
             fatalError("Unable to load the configuration plist file.")
         }
 
@@ -47,7 +49,7 @@ final class AppConfig: AppConfigurable {
     }
 
     func value<T>(forKey key: String) -> T? {
-        settings?[key] as? T
+        settings[key] as? T
     }
 
     func stringValue(forKey key: String) -> String? {
@@ -58,8 +60,8 @@ final class AppConfig: AppConfigurable {
         value(forKey: key)
     }
 
-    func boolValue(forKey key: String) -> Bool? {
-        value(forKey: key)
+    func boolValue(forKey key: String) -> Bool {
+        value(forKey: key) ?? false
     }
 
 }

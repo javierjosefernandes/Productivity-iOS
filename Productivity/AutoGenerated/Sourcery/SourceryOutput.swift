@@ -91,10 +91,10 @@ class AppConfigurableMock: AppConfigurable {
     }
     var boolValueForKeyReceivedKey: (String)?
     var boolValueForKeyReceivedInvocations: [(String)] = []
-    var boolValueForKeyReturnValue: Bool?
-    var boolValueForKeyClosure: ((String) -> Bool?)?
+    var boolValueForKeyReturnValue: Bool!
+    var boolValueForKeyClosure: ((String) -> Bool)?
 
-    func boolValue(forKey key: String) -> Bool? {
+    func boolValue(forKey key: String) -> Bool {
         boolValueForKeyCallsCount += 1
         boolValueForKeyReceivedKey = key
         boolValueForKeyReceivedInvocations.append(key)

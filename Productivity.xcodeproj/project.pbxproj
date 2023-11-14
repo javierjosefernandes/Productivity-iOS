@@ -307,11 +307,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0306BEE2AFE5B1700238219 /* Build configuration list for PBXNativeTarget "ProductivityTest" */;
 			buildPhases = (
+				D0A41D022B01285700AA785A /* Sourcery */,
+				D0A1A37B2B00F4B800CC6962 /* SwiftLint */,
 				D0306BC42AFE5B1600238219 /* Sources */,
 				D0306BC52AFE5B1600238219 /* Frameworks */,
 				D0306BC62AFE5B1600238219 /* Resources */,
-				D0A1A37B2B00F4B800CC6962 /* SwiftLint */,
-				D0A41D022B01285700AA785A /* Sourcery */,
 			);
 			buildRules = (
 			);
