@@ -47,6 +47,9 @@
 		D0306C272AFE655D00238219 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306C262AFE655D00238219 /* AppConfig.swift */; };
 		D0306C282AFE655D00238219 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306C262AFE655D00238219 /* AppConfig.swift */; };
 		D0306C292AFE655D00238219 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306C262AFE655D00238219 /* AppConfig.swift */; };
+		D06718352B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
+		D06718362B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
+		D06718372B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A41D052B012A7100AA785A /* SourceryOutput.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +91,7 @@
 		D060B5CF2B02B842003FA39C /* InfoTest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoTest.plist; sourceTree = "<group>"; };
 		D060B5D02B02B85F003FA39C /* InfoAcceptance.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoAcceptance.plist; sourceTree = "<group>"; };
 		D060B5D12B02B8AD003FA39C /* InfoProduction.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoProduction.plist; sourceTree = "<group>"; };
+		D06718342B04114700749FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0733C5C2B03763E00EA3867 /* ConfigTemplate.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ConfigTemplate.plist; sourceTree = "<group>"; };
 		D0A41D012B01280500AA785A /* AutoMockable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoMockable.stencil; sourceTree = "<group>"; };
 		D0A41D052B012A7100AA785A /* SourceryOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceryOutput.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 				D0306C252AFE64FB00238219 /* Utilities */,
 				D0306BCB2AFE5B1600238219 /* ProductivityApp.swift */,
 				D0306BCD2AFE5B1600238219 /* ContentView.swift */,
+				D06718342B04114700749FED /* AppDelegate.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */,
 				D0306BCE2AFE5B1600238219 /* ContentView.swift in Sources */,
 				D0306BCC2AFE5B1600238219 /* ProductivityApp.swift in Sources */,
+				D06718352B04114700749FED /* AppDelegate.swift in Sources */,
 				D0306C272AFE655D00238219 /* AppConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D06718362B04114700749FED /* AppDelegate.swift in Sources */,
 				D0306BFD2AFE5CE600238219 /* ContentView.swift in Sources */,
 				D0306BFF2AFE5CE600238219 /* ProductivityApp.swift in Sources */,
 				D0306C282AFE655D00238219 /* AppConfig.swift in Sources */,
@@ -598,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D06718372B04114700749FED /* AppDelegate.swift in Sources */,
 				D0306C0A2AFE5CEA00238219 /* ContentView.swift in Sources */,
 				D0306C0C2AFE5CEA00238219 /* ProductivityApp.swift in Sources */,
 				D0306C292AFE655D00238219 /* AppConfig.swift in Sources */,
