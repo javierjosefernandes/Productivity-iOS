@@ -4,5 +4,7 @@
 <dict>
 	<key>OpenAIAPIKey</key>
 	<string></string>
+	<key>MixpanelProjectToken</key>
+	<string></string>
 </dict>
 </plist>
