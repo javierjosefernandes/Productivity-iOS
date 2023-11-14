@@ -11,7 +11,7 @@ import SwiftUI
 struct ProductivityApp: App {
 
     init() {
-        let _ = AppConfig.shared.stringValue(forKey: "EnvironmentName")
+        _ = AppConfig.shared.stringValue(forKey: "EnvironmentName")
     }
 
     var body: some Scene {
