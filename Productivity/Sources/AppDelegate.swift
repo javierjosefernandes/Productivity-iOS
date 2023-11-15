@@ -20,8 +20,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             Mixpanel.initialize(token: mixpanelToken, trackAutomaticEvents: true)
         }
 
-        if let sentryDNS = AppConfig.shared.stringValue(forKey: "SentryDNS"),
-           let sentryEnv = AppConfig.shared.stringValue(forKey: "SentryEnvironment") {
+        let sentryDNS = AppConfig.shared.stringValue(forKey: "SentryDNS")
+        let sentryEnv = AppConfig.shared.stringValue(forKey: "SentryEnvironment")
+        if let sentryDNS, let sentryEnv {
             SentrySDK.start { options in
                 options.dsn = sentryDNS
                 options.environment = sentryEnv
