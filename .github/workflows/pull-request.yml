@@ -43,6 +43,7 @@ jobs:
           xcodebuild test \
             -scheme ProductivityTest \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
+            -configuration Debug \
             -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
