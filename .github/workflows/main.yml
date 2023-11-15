@@ -30,6 +30,11 @@ jobs:
           /usr/libexec/PlistBuddy -c "Set :SentryDNS '${SENTRY_DNS}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :SentryEnvironment '${SENTRY_ENVIRONMENT}'" Productivity/Configurations/Plist/ConfigTest.plist
 
+      - name: Xcode build list
+        run: |
+          xcodebuild \
+            -list
+
       - name: Resolve package dependencies
         run: |
           xcodebuild \
