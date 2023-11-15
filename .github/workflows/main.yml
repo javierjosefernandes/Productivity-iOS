@@ -35,7 +35,7 @@ jobs:
           xcodebuild test \
             -scheme ProductivityTest \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -resultBundlePath Result/ \
+            -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
 
@@ -43,9 +43,7 @@ jobs:
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
       - name: Convert xcresult to SonarQube generic coverage
-        run: |
-          xcresult_path=$(find Result/ -name '*.xcresult' | sort | tail -n 1)
-          ./xccov-to-sonarqube-generic.sh xcresult_path > $RUNNER_TEMP/sonarqube-generic-coverage.xml
+        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
 
       - name: Set up SonarScanner
         run: brew install sonar-scanner
