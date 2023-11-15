@@ -108,15 +108,13 @@ jobs:
             -Dsonar.inclusions=Productivity/Sources/**/*
 
       - name: Build and archive app
-        run: xcodebuild \
-          -scheme ProductivityTest \
+        run: xcodebuild -scheme ProductivityTest \
           -sdk iphoneos \
           -configuration Release archive \
           -archivePath $PWD/build/ProductivityTest.xcarchive
 
       - name: Export archive to an IPA
-        run: xcodebuild \
-          -exportArchive \
+        run: xcodebuild -exportArchive \
           -archivePath $PWD/build/ProductivityTest.xcarchive \
           -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist \
           -exportPath $PWD/build -allowProvisioningUpdates
