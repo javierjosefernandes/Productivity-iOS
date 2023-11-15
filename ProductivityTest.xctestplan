@@ -17,7 +17,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Productivity.xcodeproj",
         "identifier" : "D0306BD92AFE5B1700238219",
