@@ -14,6 +14,7 @@ import AWSDataStorePlugin
 import AWSPluginsCore
 import Foundation
 import Mixpanel
+import Sentry
 import UIKit
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
@@ -26,16 +27,16 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             Mixpanel.initialize(token: mixpanelToken, trackAutomaticEvents: true)
         }
 
-//        let sentryDNS = AppConfig.shared.stringValue(forKey: "SentryDNS")
-//        let sentryEnv = AppConfig.shared.stringValue(forKey: "SentryEnvironment")
-//        if let sentryDNS, let sentryEnv {
-//            SentrySDK.start { options in
-//                options.dsn = sentryDNS
-//                options.environment = sentryEnv
-//                options.debug = sentryEnv == "development"
-//                options.enableTracing = sentryEnv == "production"
-//            }
-//        }
+        let sentryDNS = AppConfig.shared.stringValue(forKey: "SentryDNS")
+        let sentryEnv = AppConfig.shared.stringValue(forKey: "SentryEnvironment")
+        if let sentryDNS, let sentryEnv {
+            SentrySDK.start { options in
+                options.dsn = sentryDNS
+                options.environment = sentryEnv
+                options.debug = sentryEnv == "development"
+                options.enableTracing = sentryEnv == "production"
+            }
+        }
 
         return true
     }
