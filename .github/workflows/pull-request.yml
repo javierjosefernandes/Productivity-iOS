@@ -47,6 +47,7 @@ jobs:
       - name: Build for testing
         run: |
           xcodebuild build-for-testing \
+            -project Productivity.xcodeproj \
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
