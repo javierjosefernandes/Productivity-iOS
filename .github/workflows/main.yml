@@ -20,6 +20,9 @@ jobs:
           agvtool new-version -all ${{ github.run_number }}
           echo "New build number set to: ${{ github.run_number }}"
 
+      - name: Convert xcresult to SonarQube generic coverage
+        run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/TestResult.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
+
       - name: Install Apple certificate and provisioning profile
         env:
           APPLE_DISTRIBUTION_CERTIFICATE_BASE64: ${{ secrets.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
@@ -79,15 +82,6 @@ jobs:
           else
             echo "No xcresult file found."
           fi
-
-      - name: Download xccov-to-sonarqube-generic.sh script
-        run: curl -o xccov-to-sonarqube-generic.sh -L https://raw.githubusercontent.com/javierjosefernandes/Productivity/main/xccov-to-sonarqube-generic.sh
-
-      - name: Make xccov-to-sonarqube-generic.sh executable
-        run: chmod +x xccov-to-sonarqube-generic.sh
-
-      - name: Convert xcresult to SonarQube generic coverage
-        run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/TestResult.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
 
       - name: Set up SonarScanner
         run: brew install sonar-scanner
