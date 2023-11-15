@@ -52,12 +52,6 @@
 		D06718372B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A41D052B012A7100AA785A /* SourceryOutput.swift */; };
 		D0D338062B04CE3900216C24 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D0D338052B04CE3900216C24 /* SentrySwiftUI */; };
-		D0D338082B04CE3900216C24 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = D0D338072B04CE3900216C24 /* Mixpanel */; };
-		D0D3380A2B04CE3900216C24 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = D0D338092B04CE3900216C24 /* Amplify */; };
-		D0D3380C2B04CE3900216C24 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D0D3380B2B04CE3900216C24 /* AWSAPIPlugin */; };
-		D0D3380E2B04CE3900216C24 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D0D3380D2B04CE3900216C24 /* AWSCognitoAuthPlugin */; };
-		D0D338102B04CE3900216C24 /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D0D3380F2B04CE3900216C24 /* AWSDataStorePlugin */; };
-		D0D338122B04CE3900216C24 /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = D0D338112B04CE3900216C24 /* AWSPluginsCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,12 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0D3380C2B04CE3900216C24 /* AWSAPIPlugin in Frameworks */,
-				D0D338122B04CE3900216C24 /* AWSPluginsCore in Frameworks */,
-				D0D3380E2B04CE3900216C24 /* AWSCognitoAuthPlugin in Frameworks */,
-				D0D3380A2B04CE3900216C24 /* Amplify in Frameworks */,
-				D0D338102B04CE3900216C24 /* AWSDataStorePlugin in Frameworks */,
-				D0D338082B04CE3900216C24 /* Mixpanel in Frameworks */,
 				D0D338062B04CE3900216C24 /* SentrySwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,12 +354,6 @@
 			name = ProductivityTests;
 			packageProductDependencies = (
 				D0D338052B04CE3900216C24 /* SentrySwiftUI */,
-				D0D338072B04CE3900216C24 /* Mixpanel */,
-				D0D338092B04CE3900216C24 /* Amplify */,
-				D0D3380B2B04CE3900216C24 /* AWSAPIPlugin */,
-				D0D3380D2B04CE3900216C24 /* AWSCognitoAuthPlugin */,
-				D0D3380F2B04CE3900216C24 /* AWSDataStorePlugin */,
-				D0D338112B04CE3900216C24 /* AWSPluginsCore */,
 			);
 			productName = ProductivityTests;
 			productReference = D0306BDA2AFE5B1700238219 /* ProductivityTests.xctest */;
@@ -1287,36 +1269,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = SentrySwiftUI;
-		};
-		D0D338072B04CE3900216C24 /* Mixpanel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C58C2B038F1E00D9480D /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
-			productName = Mixpanel;
-		};
-		D0D338092B04CE3900216C24 /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5932B0394A200D9480D /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = Amplify;
-		};
-		D0D3380B2B04CE3900216C24 /* AWSAPIPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5932B0394A200D9480D /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSAPIPlugin;
-		};
-		D0D3380D2B04CE3900216C24 /* AWSCognitoAuthPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5932B0394A200D9480D /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSCognitoAuthPlugin;
-		};
-		D0D3380F2B04CE3900216C24 /* AWSDataStorePlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5932B0394A200D9480D /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSDataStorePlugin;
-		};
-		D0D338112B04CE3900216C24 /* AWSPluginsCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5932B0394A200D9480D /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSPluginsCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
