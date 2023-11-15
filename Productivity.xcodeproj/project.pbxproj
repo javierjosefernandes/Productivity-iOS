@@ -560,7 +560,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which sourcery > /dev/null; then\n    sourcery --config .sourcery.yml\nelse\n    echo \"warning: Sourcery not installed\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n\n\nif [ -z \"$CI\" ]; then\n    if which sourcery > /dev/null; then\n        sourcery --config .sourcery.yml\n    else\n        echo \"warning: Sourcery not installed\"\n    fi\nelse\n  echo \"CI environment detected, skipping Sourcery\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
