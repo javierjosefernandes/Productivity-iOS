@@ -7,7 +7,6 @@
 
 import Foundation
 import Mixpanel
-import Sentry
 import UIKit
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
@@ -16,7 +15,11 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        true
+        if let mixpanelToken = AppConfig.shared.stringValue(forKey: "MixpanelProjectToken") {
+            Mixpanel.initialize(token: mixpanelToken, trackAutomaticEvents: true)
+        }
+
+        return true
     }
 
 }

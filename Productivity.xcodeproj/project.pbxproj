@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D01893DF2B0395F900153F98 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D01893DE2B0395F900153F98 /* SentrySwiftUI */; };
 		D01893E12B0395F900153F98 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = D01893E02B0395F900153F98 /* Mixpanel */; };
-		D01893ED2B03961100153F98 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D01893EC2B03961100153F98 /* SentrySwiftUI */; };
 		D01893EF2B03961100153F98 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = D01893EE2B03961100153F98 /* Mixpanel */; };
-		D01893FB2B03962200153F98 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D01893FA2B03962200153F98 /* SentrySwiftUI */; };
 		D01893FD2B03962200153F98 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = D01893FC2B03962200153F98 /* Mixpanel */; };
 		D0306BCC2AFE5B1600238219 /* ProductivityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306BCB2AFE5B1600238219 /* ProductivityApp.swift */; };
 		D0306BCE2AFE5B1600238219 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306BCD2AFE5B1600238219 /* ContentView.swift */; };
@@ -35,9 +32,6 @@
 		D06718362B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D06718372B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A41D052B012A7100AA785A /* SourceryOutput.swift */; };
-		D0B0668F2B05268F008FFEC4 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D0B0668E2B05268F008FFEC4 /* Sentry */; };
-		D0B066952B0526A3008FFEC4 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D0B066942B0526A3008FFEC4 /* Sentry */; };
-		D0B066972B0526A8008FFEC4 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D0B066962B0526A8008FFEC4 /* Sentry */; };
 		D0B066F32B055835008FFEC4 /* ProductivityTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B066F22B055835008FFEC4 /* ProductivityTestTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,8 +80,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01893E12B0395F900153F98 /* Mixpanel in Frameworks */,
-				D01893DF2B0395F900153F98 /* SentrySwiftUI in Frameworks */,
-				D0B066972B0526A8008FFEC4 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +88,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01893EF2B03961100153F98 /* Mixpanel in Frameworks */,
-				D01893ED2B03961100153F98 /* SentrySwiftUI in Frameworks */,
-				D0B066952B0526A3008FFEC4 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,8 +96,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01893FD2B03962200153F98 /* Mixpanel in Frameworks */,
-				D01893FB2B03962200153F98 /* SentrySwiftUI in Frameworks */,
-				D0B0668F2B05268F008FFEC4 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +264,7 @@
 			);
 			name = ProductivityTest;
 			packageProductDependencies = (
-				D01893DE2B0395F900153F98 /* SentrySwiftUI */,
 				D01893E02B0395F900153F98 /* Mixpanel */,
-				D0B066962B0526A8008FFEC4 /* Sentry */,
 			);
 			productName = Productivity;
 			productReference = D0306BC82AFE5B1600238219 /* ProductivityTest.app */;
@@ -298,9 +284,7 @@
 			);
 			name = ProductivityAcceptance;
 			packageProductDependencies = (
-				D01893EC2B03961100153F98 /* SentrySwiftUI */,
 				D01893EE2B03961100153F98 /* Mixpanel */,
-				D0B066942B0526A3008FFEC4 /* Sentry */,
 			);
 			productName = Productivity;
 			productReference = D0306C072AFE5CE600238219 /* ProductivityAcceptance.app */;
@@ -320,9 +304,7 @@
 			);
 			name = ProductivityProduction;
 			packageProductDependencies = (
-				D01893FA2B03962200153F98 /* SentrySwiftUI */,
 				D01893FC2B03962200153F98 /* Mixpanel */,
-				D0B0668E2B05268F008FFEC4 /* Sentry */,
 			);
 			productName = Productivity;
 			productReference = D0306C142AFE5CEA00238219 /* ProductivityProduction.app */;
@@ -375,7 +357,6 @@
 			);
 			mainGroup = D0306BBF2AFE5B1600238219;
 			packageReferences = (
-				D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				D053C58C2B038F1E00D9480D /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = D0306BC92AFE5B1600238219 /* Products */;
@@ -980,14 +961,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.15.2;
-			};
-		};
 		D053C58C2B038F1E00D9480D /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
@@ -999,50 +972,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D01893DE2B0395F900153F98 /* SentrySwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = SentrySwiftUI;
-		};
 		D01893E02B0395F900153F98 /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D053C58C2B038F1E00D9480D /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
 			productName = Mixpanel;
-		};
-		D01893EC2B03961100153F98 /* SentrySwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = SentrySwiftUI;
 		};
 		D01893EE2B03961100153F98 /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D053C58C2B038F1E00D9480D /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
 			productName = Mixpanel;
 		};
-		D01893FA2B03962200153F98 /* SentrySwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = SentrySwiftUI;
-		};
 		D01893FC2B03962200153F98 /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D053C58C2B038F1E00D9480D /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
 			productName = Mixpanel;
-		};
-		D0B0668E2B05268F008FFEC4 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
-		};
-		D0B066942B0526A3008FFEC4 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
-		};
-		D0B066962B0526A8008FFEC4 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
