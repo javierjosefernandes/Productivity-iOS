@@ -32,13 +32,12 @@ jobs:
 
       - name: Build for testing
         run: |
-          xcodebuild build-for-testing \
+          xcodebuild build \
             -project Productivity.xcodeproj \
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -quiet \
-            -scmProvider system
+            -quiet
 
       - name: Test without building
         run: |
@@ -50,7 +49,6 @@ jobs:
             -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
-            -scmProvider system
 
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
