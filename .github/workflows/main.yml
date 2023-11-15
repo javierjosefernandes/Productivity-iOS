@@ -108,16 +108,20 @@ jobs:
             -Dsonar.inclusions=Productivity/Sources/**/*
 
       - name: Build and archive app
-        run: xcodebuild -scheme ProductivityTest \
-          -sdk iphoneos \
-          -configuration Release archive \
-          -archivePath $PWD/build/ProductivityTest.xcarchive
+        run: |
+          xcodebuild \
+            -scheme ProductivityTest \
+            -sdk iphoneos \
+            -configuration Release archive \
+            -archivePath $PWD/build/ProductivityTest.xcarchive
 
       - name: Export archive to an IPA
-        run: xcodebuild -exportArchive \
-          -archivePath $PWD/build/ProductivityTest.xcarchive \
-          -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist \
-          -exportPath $PWD/build -allowProvisioningUpdates
+        run: |
+          xcodebuild \
+            -exportArchive \
+            -archivePath $PWD/build/ProductivityTest.xcarchive \
+            -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist \
+            -exportPath $PWD/build -allowProvisioningUpdates
 
       - name: Decode App Connect Store API Key
         env:
