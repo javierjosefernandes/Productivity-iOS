@@ -20,6 +20,9 @@ jobs:
           agvtool new-version -all ${{ github.run_number }}
           echo "New build number set to: ${{ github.run_number }}"
 
+      - name: Make xccov-to-sonarqube-generic.sh executable
+        run: chmod +x ./xccov-to-sonarqube-generic.sh
+
       - name: Convert xcresult to SonarQube generic coverage
         run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/TestResult.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
 
