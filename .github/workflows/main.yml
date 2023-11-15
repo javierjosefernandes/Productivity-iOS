@@ -37,12 +37,11 @@ jobs:
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
             -resultBundlePath Result/ \
             -enableCodeCoverage YES \
-            -quiet \
-            -scmProvider system
+            -quiet
 
       - name: Copy xcresult to temp directory
         run: |
-          xcresult_path=$(find Result/Logs/Test -name '*.xcresult' | sort | tail -n 1)
+          xcresult_path=$(find Result/ -name '*.xcresult' | sort | tail -n 1)
           if [ -n "$xcresult_path" ]; then
             new_xcresult_name="TestResult.xcresult"
             temp_path="$RUNNER_TEMP/$new_xcresult_name"
@@ -120,8 +119,7 @@ jobs:
             -sdk iphoneos \
             -configuration Release archive \
             -archivePath $PWD/build/ProductivityTest.xcarchive \
-            -quiet \
-            -scmProvider system
+            -quiet
 
       - name: Export archive to an IPA
         run: |
@@ -130,8 +128,7 @@ jobs:
             -archivePath $PWD/build/ProductivityTest.xcarchive \
             -exportOptionsPlist ./Productivity/Configurations/Plist/ExportOptionsTest.plist \
             -exportPath $PWD/build -allowProvisioningUpdates \
-            -quiet \
-            -scmProvider system
+            -quiet
 
       - name: Decode App Connect Store API Key
         env:
