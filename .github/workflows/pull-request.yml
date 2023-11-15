@@ -23,11 +23,10 @@ jobs:
       - name: Run SwiftLint
         run: swiftlint --strict
 
-      - name: Install Apple certificate and provisioning profile
+      - name: Install Apple certificate
         env:
           APPLE_DISTRIBUTION_CERTIFICATE_BASE64: ${{ secrets.APPLE_DISTRIBUTION_CERTIFICATE_BASE64 }}
           APPLE_DISTRIBUTION_CERTIFICATE_P12_PW: ${{ secrets.APPLE_DISTRIBUTION_CERTIFICATE_P12_PW }}
-          APPLE_PROVISIONING_PROFILE_BASE64: ${{ secrets.APPLE_PROVISIONING_PROFILE_BASE64 }}
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
         run: |
           # Create variables
@@ -37,7 +36,6 @@ jobs:
 
           # import certificate and provisioning profile from secrets
           echo -n "$APPLE_DISTRIBUTION_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
-          echo -n "$APPLE_PROVISIONING_PROFILE_BASE64" | base64 --decode -o $PP_PATH
 
           # Create temporary keychain
           security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
@@ -47,10 +45,6 @@ jobs:
           # Import certificate to keychain
           security import $CERTIFICATE_PATH -P "$APPLE_DISTRIBUTION_CERTIFICATE_P12_PW" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
           security list-keychain -d user -s $KEYCHAIN_PATH
-
-          # Apply provisioning profile
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
       - name: Create configuration file
         run: cp Productivity/Configurations/Plist/ConfigTemplate.plist Productivity/Configurations/Plist/ConfigTest.plist
@@ -83,11 +77,8 @@ jobs:
             echo "No xcresult file found."
           fi
 
-      - name: Download xccov-to-sonarqube-generic.sh script
-        run: curl -o xccov-to-sonarqube-generic.sh -L https://raw.githubusercontent.com/javierjosefernandes/Productivity/main/xccov-to-sonarqube-generic.sh
-
       - name: Make xccov-to-sonarqube-generic.sh executable
-        run: chmod +x xccov-to-sonarqube-generic.sh
+        run: chmod +x ./xccov-to-sonarqube-generic.sh
 
       - name: Convert xcresult to SonarQube generic coverage
         run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/TestResult.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
