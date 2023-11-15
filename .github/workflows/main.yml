@@ -30,13 +30,23 @@ jobs:
           /usr/libexec/PlistBuddy -c "Set :SentryDNS '${SENTRY_DNS}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :SentryEnvironment '${SENTRY_ENVIRONMENT}'" Productivity/Configurations/Plist/ConfigTest.plist
 
-      - name: Test
+      - name: Resolve package dependencies
+        run: |
+          xcodebuild \
+            -project Productivity.xcodeproj \
+            -scheme ProductivityTest \
+            -derivedDataPath Build \
+            -resolvePackageDependencies \
+            -quiet
+
+      - name: Run unit tests with code coverage
         run: |
           xcodebuild test \
             -project Productivity.xcodeproj \
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
+            -derivedDataPath Build \
             -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet

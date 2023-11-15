@@ -41,16 +41,20 @@ jobs:
       - name: Resolve package dependencies
         run: |
           xcodebuild \
+            -project Productivity.xcodeproj \
             -scheme ProductivityTest \
-            -resolvePackageDependencies
+            -derivedDataPath Build \
+            -resolvePackageDependencies \
+            -quiet
 
-      - name: Test
+      - name: Run unit tests with code coverage
         run: |
           xcodebuild test \
             -project Productivity.xcodeproj \
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
+            -derivedDataPath Build \
             -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
