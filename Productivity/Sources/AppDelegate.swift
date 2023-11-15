@@ -23,21 +23,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        if let mixpanelToken = AppConfig.shared.stringValue(forKey: "MixpanelProjectToken") {
-            Mixpanel.initialize(token: mixpanelToken, trackAutomaticEvents: true)
-        }
-
-        let sentryDNS = AppConfig.shared.stringValue(forKey: "SentryDNS")
-        let sentryEnv = AppConfig.shared.stringValue(forKey: "SentryEnvironment")
-        if let sentryDNS, let sentryEnv {
-            SentrySDK.start { options in
-                options.dsn = sentryDNS
-                options.environment = sentryEnv
-                options.debug = sentryEnv == "development"
-                options.enableTracing = sentryEnv == "production"
-            }
-        }
-
         return true
     }
 
