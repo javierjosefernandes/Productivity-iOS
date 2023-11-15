@@ -37,7 +37,6 @@ jobs:
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
             -resultBundlePath result \
             -enableCodeCoverage YES \
-            -quiet \
             -resolvePackageDependencies
 
       - name: Make xccov-to-sonarqube-generic.sh executable
