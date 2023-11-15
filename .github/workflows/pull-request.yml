@@ -43,7 +43,7 @@ jobs:
           xcodebuild \
             -project Productivity.xcodeproj \
             -scheme ProductivityTest \
-            -derivedDataPath Build \
+            -cloned_source_packages_path SourcePackages/ \
             -resolvePackageDependencies \
             -quiet
 
@@ -54,7 +54,7 @@ jobs:
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -derivedDataPath Build \
+            -cloned_source_packages_path SourcePackages/ \
             -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
