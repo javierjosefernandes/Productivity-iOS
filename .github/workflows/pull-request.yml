@@ -38,6 +38,12 @@ jobs:
           /usr/libexec/PlistBuddy -c "Set :SentryDNS '${SENTRY_DNS}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :SentryEnvironment '${SENTRY_ENVIRONMENT}'" Productivity/Configurations/Plist/ConfigTest.plist
 
+      - name: Resolve package dependencies
+        run: |
+          xcodebuild \
+            -scheme ProductivityTest \
+            -resolvePackageDependencies
+
       - name: Run unit tests with code coverage
         run: |
           xcodebuild test \
@@ -45,7 +51,7 @@ jobs:
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
             -resultBundlePath result \
             -enableCodeCoverage YES \
-            -resolvePackageDependencies
+            -quiet
 
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
