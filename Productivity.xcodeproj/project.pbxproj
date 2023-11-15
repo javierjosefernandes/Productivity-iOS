@@ -51,7 +51,6 @@
 		D06718362B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D06718372B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A41D052B012A7100AA785A /* SourceryOutput.swift */; };
-		D0D338062B04CE3900216C24 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D0D338052B04CE3900216C24 /* SentrySwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,7 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0D338062B04CE3900216C24 /* SentrySwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +351,6 @@
 			);
 			name = ProductivityTests;
 			packageProductDependencies = (
-				D0D338052B04CE3900216C24 /* SentrySwiftUI */,
 			);
 			productName = ProductivityTests;
 			productReference = D0306BDA2AFE5B1700238219 /* ProductivityTests.xctest */;
@@ -1264,11 +1261,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D053C5932B0394A200D9480D /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSPluginsCore;
-		};
-		D0D338052B04CE3900216C24 /* SentrySwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = SentrySwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
