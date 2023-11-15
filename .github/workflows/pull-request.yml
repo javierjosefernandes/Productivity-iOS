@@ -43,14 +43,14 @@ jobs:
           xcodebuild test \
             -scheme ProductivityTest \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -derivedDataPath Build/ \
+            -resultBundlePath Result/ \
             -enableCodeCoverage YES \
             -quiet \
             -scmProvider system
 
       - name: Copy xcresult to temp directory
         run: |
-          xcresult_path=$(find Build/Logs/Test -name '*.xcresult' | sort | tail -n 1)
+          xcresult_path=$(find Result/Logs/Test -name '*.xcresult' | sort | tail -n 1)
           if [ -n "$xcresult_path" ]; then
             new_xcresult_name="TestResult.xcresult"
             temp_path="$RUNNER_TEMP/$new_xcresult_name"

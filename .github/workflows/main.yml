@@ -35,7 +35,7 @@ jobs:
           xcodebuild test \
             -scheme ProductivityTest \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -resultBundlePath Result \
+            -resultBundlePath Result/ \
             -enableCodeCoverage YES \
             -quiet \
             -scmProvider system
