@@ -35,8 +35,8 @@ jobs:
           xcodebuild \
             -project Productivity.xcodeproj \
             -scheme ProductivityTest \
-            -clonedSourcePackagesDirPath sourcePackages \
-            -derivedDataPath derivedData \
+            -clonedSourcePackagesDirPath $PWD/SourcePackages \
+            -derivedDataPath $PWD/DerivedData \
             -resolvePackageDependencies \
             -quiet
 
@@ -47,8 +47,8 @@ jobs:
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -clonedSourcePackagesDirPath sourcePackages \
-            -derivedDataPath derivedData \
+            -clonedSourcePackagesDirPath $PWD/SourcePackages \
+            -derivedDataPath $PWD/DerivedData \
             -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
@@ -120,18 +120,18 @@ jobs:
             -scheme ProductivityTest \
             -sdk iphoneos \
             -configuration Release \
-            -clonedSourcePackagesDirPath sourcePackages \
-            -derivedDataPath derivedData \
-            -archivePath build/ProductivityTest.xcarchive \
+            -clonedSourcePackagesDirPath $PWD/SourcePackages \
+            -derivedDataPath $PWD/DerivedData \
+            -archivePath $PWD/Build/ProductivityTest.xcarchive \
             -quiet
 
       - name: Export archive to an IPA
         run: |
           xcodebuild \
             -exportArchive \
-            -archivePath build/ProductivityTest.xcarchive \
-            -exportOptionsPlist Productivity/Configurations/Plist/ExportOptionsTest.plist \
-            -exportPath build \
+            -archivePath $PWD/Build/ProductivityTest.xcarchive \
+            -exportOptionsPlist $PWD/Productivity/Configurations/Plist/ExportOptionsTest.plist \
+            -exportPath $PWD/Build \
             -allowProvisioningUpdates \
             -quiet
 
@@ -148,11 +148,11 @@ jobs:
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
-          xcrun altool --validate-app --type ios --file build/ProductivityTest.ipa --apiKey $APP_STORE_CONNECT_API_KEY_ID --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
+          xcrun altool --validate-app --type ios --file $PWD/Build/ProductivityTest.ipa --apiKey $APP_STORE_CONNECT_API_KEY_ID --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
 
       - name: Upload app
         env:
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
-          xcrun altool --upload-app --type ios --file build/ProductivityTest.ipa --apiKey $APP_STORE_CONNECT_API_KEY_ID --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
+          xcrun altool --upload-app --type ios --file $PWD/Build/ProductivityTest.ipa --apiKey $APP_STORE_CONNECT_API_KEY_ID --apiIssuer $APP_STORE_CONNECT_API_ISSUER_ID --verbose
