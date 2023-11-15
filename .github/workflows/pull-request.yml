@@ -44,18 +44,10 @@ jobs:
             -scheme ProductivityTest \
             -resolvePackageDependencies
 
-      - name: Build for testing
+      - name: Test
         run: |
-          xcodebuild build \
+          xcodebuild test \
             -project Productivity.xcodeproj \
-            -scheme ProductivityTest \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -quiet
-
-      - name: Test without building
-        run: |
-          xcodebuild test-without-building \
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \

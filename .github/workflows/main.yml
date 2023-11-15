@@ -30,18 +30,9 @@ jobs:
           /usr/libexec/PlistBuddy -c "Set :SentryDNS '${SENTRY_DNS}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :SentryEnvironment '${SENTRY_ENVIRONMENT}'" Productivity/Configurations/Plist/ConfigTest.plist
 
-      - name: Build for testing
+      - name: Test
         run: |
-          xcodebuild build \
-            -project Productivity.xcodeproj \
-            -scheme ProductivityTest \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -quiet
-
-      - name: Test without building
-        run: |
-          xcodebuild test-without-building \
+          xcodebuild test \
             -project Productivity.xcodeproj \
             -scheme ProductivityTest \
             -sdk iphonesimulator \
