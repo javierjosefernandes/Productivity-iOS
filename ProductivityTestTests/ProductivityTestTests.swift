@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import ProductivityTest
 
 final class ProductivityTestTests: XCTestCase {
 
