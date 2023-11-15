@@ -51,9 +51,7 @@
 		D06718362B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D06718372B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A41D052B012A7100AA785A /* SourceryOutput.swift */; };
-		D0D337FC2B04C8FC00216C24 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D0D337FB2B04C8FC00216C24 /* Sentry */; };
-		D0D337FE2B04C90900216C24 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D0D337FD2B04C90900216C24 /* Sentry */; };
-		D0D338002B04C91100216C24 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D0D337FF2B04C91100216C24 /* Sentry */; };
+		D0D338042B04CD8A00216C24 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D0D338032B04CD8A00216C24 /* SentrySwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +109,6 @@
 				D01893E52B0395F900153F98 /* AWSAPIPlugin in Frameworks */,
 				D01893EB2B0395F900153F98 /* AWSPluginsCore in Frameworks */,
 				D01893E72B0395F900153F98 /* AWSCognitoAuthPlugin in Frameworks */,
-				D0D337FC2B04C8FC00216C24 /* Sentry in Frameworks */,
 				D01893E32B0395F900153F98 /* Amplify in Frameworks */,
 				D01893E92B0395F900153F98 /* AWSDataStorePlugin in Frameworks */,
 				D01893E12B0395F900153F98 /* Mixpanel in Frameworks */,
@@ -123,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D338042B04CD8A00216C24 /* SentrySwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +138,6 @@
 				D01893F32B03961100153F98 /* AWSAPIPlugin in Frameworks */,
 				D01893F92B03961100153F98 /* AWSPluginsCore in Frameworks */,
 				D01893F52B03961100153F98 /* AWSCognitoAuthPlugin in Frameworks */,
-				D0D337FE2B04C90900216C24 /* Sentry in Frameworks */,
 				D01893F12B03961100153F98 /* Amplify in Frameworks */,
 				D01893F72B03961100153F98 /* AWSDataStorePlugin in Frameworks */,
 				D01893EF2B03961100153F98 /* Mixpanel in Frameworks */,
@@ -155,7 +152,6 @@
 				D01894012B03962200153F98 /* AWSAPIPlugin in Frameworks */,
 				D01894072B03962200153F98 /* AWSPluginsCore in Frameworks */,
 				D01894032B03962200153F98 /* AWSCognitoAuthPlugin in Frameworks */,
-				D0D338002B04C91100216C24 /* Sentry in Frameworks */,
 				D01893FF2B03962200153F98 /* Amplify in Frameworks */,
 				D01894052B03962200153F98 /* AWSDataStorePlugin in Frameworks */,
 				D01893FD2B03962200153F98 /* Mixpanel in Frameworks */,
@@ -337,7 +333,6 @@
 				D01893E62B0395F900153F98 /* AWSCognitoAuthPlugin */,
 				D01893E82B0395F900153F98 /* AWSDataStorePlugin */,
 				D01893EA2B0395F900153F98 /* AWSPluginsCore */,
-				D0D337FB2B04C8FC00216C24 /* Sentry */,
 			);
 			productName = Productivity;
 			productReference = D0306BC82AFE5B1600238219 /* ProductivityTest.app */;
@@ -357,6 +352,9 @@
 				D0306BDC2AFE5B1700238219 /* PBXTargetDependency */,
 			);
 			name = ProductivityTests;
+			packageProductDependencies = (
+				D0D338032B04CD8A00216C24 /* SentrySwiftUI */,
+			);
 			productName = ProductivityTests;
 			productReference = D0306BDA2AFE5B1700238219 /* ProductivityTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -400,7 +398,6 @@
 				D01893F42B03961100153F98 /* AWSCognitoAuthPlugin */,
 				D01893F62B03961100153F98 /* AWSDataStorePlugin */,
 				D01893F82B03961100153F98 /* AWSPluginsCore */,
-				D0D337FD2B04C90900216C24 /* Sentry */,
 			);
 			productName = Productivity;
 			productReference = D0306C072AFE5CE600238219 /* ProductivityAcceptance.app */;
@@ -427,7 +424,6 @@
 				D01894022B03962200153F98 /* AWSCognitoAuthPlugin */,
 				D01894042B03962200153F98 /* AWSDataStorePlugin */,
 				D01894062B03962200153F98 /* AWSPluginsCore */,
-				D0D337FF2B04C91100216C24 /* Sentry */,
 			);
 			productName = Productivity;
 			productReference = D0306C142AFE5CEA00238219 /* ProductivityProduction.app */;
@@ -1269,20 +1265,10 @@
 			package = D053C5932B0394A200D9480D /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSPluginsCore;
 		};
-		D0D337FB2B04C8FC00216C24 /* Sentry */ = {
+		D0D338032B04CD8A00216C24 /* SentrySwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
-		};
-		D0D337FD2B04C90900216C24 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
-		};
-		D0D337FF2B04C91100216C24 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D053C5842B038DD400D9480D /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
+			productName = SentrySwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
