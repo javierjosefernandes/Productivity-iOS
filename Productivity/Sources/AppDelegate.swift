@@ -7,6 +7,7 @@
 
 import Foundation
 import Mixpanel
+import Sentry
 import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -17,6 +18,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         if let mixpanelToken = AppConfig.shared.stringValue(forKey: "MixpanelProjectToken") {
             Mixpanel.initialize(token: mixpanelToken, trackAutomaticEvents: true)
+        }
+
+        if let sentryDNS = AppConfig.shared.stringValue(forKey: "SentryDNS"),
+           let sentryEnv = AppConfig.shared.stringValue(forKey: "SentryEnvironment") {
+            SentrySDK.start { options in
+                options.dsn = sentryDNS
+                options.environment = sentryEnv
+                options.debug = sentryEnv == "development"
+                options.enableTracing = sentryEnv == "production"
+            }
         }
 
         return true

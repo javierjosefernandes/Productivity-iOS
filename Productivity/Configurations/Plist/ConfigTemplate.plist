@@ -6,5 +6,9 @@
 	<string></string>
 	<key>MixpanelProjectToken</key>
 	<string></string>
+	<key>SentryDNS</key>
+	<string></string>
+	<key>SentryEnvironment</key>
+	<string></string>
 </dict>
 </plist>
