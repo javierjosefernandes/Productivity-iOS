@@ -15,11 +15,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Increment build version
-        run: |
-          agvtool new-version -all ${{ github.run_number }}
-          echo "New build number set to: ${{ github.run_number }}"
-
       - name: Create configuration file
         run: cp Productivity/Configurations/Plist/ConfigTemplate.plist Productivity/Configurations/Plist/ConfigTest.plist
 
@@ -106,6 +101,11 @@ jobs:
           # Apply provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+
+      - name: Increment build version
+        run: |
+          agvtool new-version -all ${{ github.run_number }}
+          echo "New build number set to: ${{ github.run_number }}"
 
       - name: Build and archive app
         run: |
