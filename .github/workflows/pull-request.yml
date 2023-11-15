@@ -47,23 +47,13 @@ jobs:
             -enableCodeCoverage YES \
             -quiet
 
-      - name: Copy xcresult to temp directory
-        run: |
-          xcresult_path=$(find Result/ -name '*.xcresult' | sort | tail -n 1)
-          if [ -n "$xcresult_path" ]; then
-            new_xcresult_name="TestResult.xcresult"
-            temp_path="$RUNNER_TEMP/$new_xcresult_name"
-            cp -R "$xcresult_path" "$temp_path"
-            echo "xcresult file renamed to $new_xcresult_name and copied to $RUNNER_TEMP"
-          else
-            echo "No xcresult file found."
-          fi
-
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
       - name: Convert xcresult to SonarQube generic coverage
-        run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/TestResult.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
+        run: |
+          xcresult_path=$(find Result/ -name '*.xcresult' | sort | tail -n 1)
+          ./xccov-to-sonarqube-generic.sh xcresult_path > $RUNNER_TEMP/sonarqube-generic-coverage.xml
 
       - name: Set up SonarScanner
         run: brew install sonar-scanner
