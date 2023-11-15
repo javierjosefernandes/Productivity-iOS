@@ -71,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0249C1F2B04EA9500CE0B4C /* ProductivityTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProductivityTest.xctestplan; sourceTree = "<group>"; };
 		D0306BC82AFE5B1600238219 /* ProductivityTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductivityTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0306BCB2AFE5B1600238219 /* ProductivityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductivityApp.swift; sourceTree = "<group>"; };
 		D0306BCD2AFE5B1600238219 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 				D0306BE72AFE5B1700238219 /* ProductivityUITests */,
 				D0306BC92AFE5B1600238219 /* Products */,
 				D053C5872B038E5D00D9480D /* Frameworks */,
+				D0249C1F2B04EA9500CE0B4C /* ProductivityTest.xctestplan */,
 			);
 			sourceTree = "<group>";
 		};
