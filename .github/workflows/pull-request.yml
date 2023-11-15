@@ -44,7 +44,9 @@ jobs:
             -scheme ProductivityTest \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
             -derivedDataPath Build/ \
-            -enableCodeCoverage YES
+            -enableCodeCoverage YES \
+            -quiet \
+            -scmProvider system
 
       - name: Copy xcresult to temp directory
         run: |
