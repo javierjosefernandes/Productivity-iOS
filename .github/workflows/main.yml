@@ -30,18 +30,11 @@ jobs:
           /usr/libexec/PlistBuddy -c "Set :SentryDNS '${SENTRY_DNS}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :SentryEnvironment '${SENTRY_ENVIRONMENT}'" Productivity/Configurations/Plist/ConfigTest.plist
 
-      - name: Xcode build list
-        run: |
-          xcodebuild \
-            -list
-
       - name: Resolve package dependencies
         run: |
           xcodebuild \
             -project Productivity.xcodeproj \
             -scheme ProductivityTest \
-            -clonedSourcePackagesDirPath $PWD/SourcePackages \
-            -derivedDataPath $PWD/DerivedData \
             -resolvePackageDependencies \
             -quiet
 
@@ -52,8 +45,6 @@ jobs:
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -clonedSourcePackagesDirPath $PWD/SourcePackages \
-            -derivedDataPath $PWD/DerivedData \
             -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
@@ -125,8 +116,6 @@ jobs:
             -scheme ProductivityTest \
             -sdk iphoneos \
             -configuration Release \
-            -clonedSourcePackagesDirPath $PWD/SourcePackages \
-            -derivedDataPath $PWD/DerivedData \
             -archivePath $PWD/Build/ProductivityTest.xcarchive \
             -quiet
 
