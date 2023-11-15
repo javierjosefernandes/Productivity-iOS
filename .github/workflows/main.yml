@@ -35,10 +35,10 @@ jobs:
           xcodebuild test \
             -scheme ProductivityTest \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            -configuration Debug \
             -resultBundlePath result \
             -enableCodeCoverage YES \
-            -quiet
+            -quiet \
+            -resolvePackageDependencies
 
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
