@@ -46,9 +46,9 @@
 		D06718352B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D06718362B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D06718372B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
-		D06728C82B055E6700B14688 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D06728C72B055E6700B14688 /* Sentry */; };
-		D06728CA2B055E7A00B14688 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D06728C92B055E7A00B14688 /* Sentry */; };
-		D06728CC2B055E8000B14688 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = D06728CB2B055E8000B14688 /* Sentry */; };
+		D07F9B3B2B064EEC005006A6 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D07F9B3A2B064EEC005006A6 /* SentrySwiftUI */; };
+		D07F9B3D2B064EF7005006A6 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D07F9B3C2B064EF7005006A6 /* SentrySwiftUI */; };
+		D07F9B3F2B064EFF005006A6 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D07F9B3E2B064EFF005006A6 /* SentrySwiftUI */; };
 		D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A41D052B012A7100AA785A /* SourceryOutput.swift */; };
 		D0B066F32B055835008FFEC4 /* ProductivityTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B066F22B055835008FFEC4 /* ProductivityTestTests.swift */; };
 /* End PBXBuildFile section */
@@ -102,8 +102,8 @@
 				D05205782B05640300CD044C /* AWSCognitoAuthPlugin in Frameworks */,
 				D05205742B05640300CD044C /* Amplify in Frameworks */,
 				D052057A2B05640300CD044C /* AWSDataStorePlugin in Frameworks */,
+				D07F9B3B2B064EEC005006A6 /* SentrySwiftUI in Frameworks */,
 				D01893E12B0395F900153F98 /* Mixpanel in Frameworks */,
-				D06728C82B055E6700B14688 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +116,8 @@
 				D05205822B05643800CD044C /* AWSCognitoAuthPlugin in Frameworks */,
 				D052057E2B05643800CD044C /* Amplify in Frameworks */,
 				D05205842B05643800CD044C /* AWSDataStorePlugin in Frameworks */,
+				D07F9B3D2B064EF7005006A6 /* SentrySwiftUI in Frameworks */,
 				D01893EF2B03961100153F98 /* Mixpanel in Frameworks */,
-				D06728CA2B055E7A00B14688 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,8 +130,8 @@
 				D052058C2B05644600CD044C /* AWSCognitoAuthPlugin in Frameworks */,
 				D05205882B05644600CD044C /* Amplify in Frameworks */,
 				D052058E2B05644600CD044C /* AWSDataStorePlugin in Frameworks */,
+				D07F9B3F2B064EFF005006A6 /* SentrySwiftUI in Frameworks */,
 				D01893FD2B03962200153F98 /* Mixpanel in Frameworks */,
-				D06728CC2B055E8000B14688 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,12 +301,12 @@
 			name = ProductivityTest;
 			packageProductDependencies = (
 				D01893E02B0395F900153F98 /* Mixpanel */,
-				D06728C72B055E6700B14688 /* Sentry */,
 				D05205732B05640300CD044C /* Amplify */,
 				D05205752B05640300CD044C /* AWSAPIPlugin */,
 				D05205772B05640300CD044C /* AWSCognitoAuthPlugin */,
 				D05205792B05640300CD044C /* AWSDataStorePlugin */,
 				D052057B2B05640300CD044C /* AWSPluginsCore */,
+				D07F9B3A2B064EEC005006A6 /* SentrySwiftUI */,
 			);
 			productName = Productivity;
 			productReference = D0306BC82AFE5B1600238219 /* ProductivityTest.app */;
@@ -327,12 +327,12 @@
 			name = ProductivityAcceptance;
 			packageProductDependencies = (
 				D01893EE2B03961100153F98 /* Mixpanel */,
-				D06728C92B055E7A00B14688 /* Sentry */,
 				D052057D2B05643800CD044C /* Amplify */,
 				D052057F2B05643800CD044C /* AWSAPIPlugin */,
 				D05205812B05643800CD044C /* AWSCognitoAuthPlugin */,
 				D05205832B05643800CD044C /* AWSDataStorePlugin */,
 				D05205852B05643800CD044C /* AWSPluginsCore */,
+				D07F9B3C2B064EF7005006A6 /* SentrySwiftUI */,
 			);
 			productName = Productivity;
 			productReference = D0306C072AFE5CE600238219 /* ProductivityAcceptance.app */;
@@ -353,12 +353,12 @@
 			name = ProductivityProduction;
 			packageProductDependencies = (
 				D01893FC2B03962200153F98 /* Mixpanel */,
-				D06728CB2B055E8000B14688 /* Sentry */,
 				D05205872B05644600CD044C /* Amplify */,
 				D05205892B05644600CD044C /* AWSAPIPlugin */,
 				D052058B2B05644600CD044C /* AWSCognitoAuthPlugin */,
 				D052058D2B05644600CD044C /* AWSDataStorePlugin */,
 				D052058F2B05644600CD044C /* AWSPluginsCore */,
+				D07F9B3E2B064EFF005006A6 /* SentrySwiftUI */,
 			);
 			productName = Productivity;
 			productReference = D0306C142AFE5CEA00238219 /* ProductivityProduction.app */;
@@ -1134,20 +1134,20 @@
 			package = D05205722B0563E200CD044C /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSPluginsCore;
 		};
-		D06728C72B055E6700B14688 /* Sentry */ = {
+		D07F9B3A2B064EEC005006A6 /* SentrySwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D06728C62B055E6700B14688 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
+			productName = SentrySwiftUI;
 		};
-		D06728C92B055E7A00B14688 /* Sentry */ = {
+		D07F9B3C2B064EF7005006A6 /* SentrySwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D06728C62B055E6700B14688 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
+			productName = SentrySwiftUI;
 		};
-		D06728CB2B055E8000B14688 /* Sentry */ = {
+		D07F9B3E2B064EFF005006A6 /* SentrySwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D06728C62B055E6700B14688 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
+			productName = SentrySwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
