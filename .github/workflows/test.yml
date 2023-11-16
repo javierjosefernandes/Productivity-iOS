@@ -41,13 +41,29 @@ jobs:
             -enableCodeCoverage YES \
             -quiet
 
+      - name: Install xcresult parser
+        run: brew install xcresultparser
+
+      - name: Parse xcresult for Codecov
+        run: |
+          xcresultparser \
+            --output-format cobertura \
+            $RUNNER_TEMP/Reports/result.xcresult > $RUNNER_TEMP/Reports/codecov-coverage.xml
+
+      - name: Upload coverage report to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: $RUNNER_TEMP/Reports/codecov-coverage.xml
+          fail_ci_if_error: true
+
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
       - name: Convert xcresult to SonarQube generic coverage
         run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/Reports/result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
 
-      - name: Set up SonarScanner
+      - name: Install Sonar Scanner
         run: brew install sonar-scanner
 
       - name: SonarCloud scan
@@ -67,13 +83,6 @@ jobs:
             -Dsonar.cpp.file.suffixes=- \
             -Dsonar.objc.file.suffixes=- \
             -Dsonar.inclusions=Productivity/Sources/**/*
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        with:
-          files: $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
 
       - name: Install Apple certificate and provisioning profile
         env:
@@ -132,7 +141,7 @@ jobs:
             -allowProvisioningUpdates \
             -quiet
 
-      - name: Install sentry-cli
+      - name: Install Sentry CLI
         run: brew install getsentry/tools/sentry-cli
 
       - name: Upload debug symbols to Sentry
