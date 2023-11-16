@@ -53,7 +53,7 @@ jobs:
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
       - name: Parse xcresult for Sonar
-        run: ./xccov-to-sonarqube-generic.sh ./result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
+        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
 
       - name: Install Sonar Scanner
         run: brew install sonar-scanner
@@ -70,7 +70,7 @@ jobs:
             -Dsonar.sources=. \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.token=$SONAR_TOKEN \
-            -Dsonar.coverageReportPaths=$RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml \
+            -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml \
             -Dsonar.c.file.suffixes=- \
             -Dsonar.cpp.file.suffixes=- \
             -Dsonar.objc.file.suffixes=- \
