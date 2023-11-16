@@ -38,8 +38,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             }
         }
 
-        SentrySDK.capture(message: "Test message from iOS")
-
         return true
     }
 
