@@ -125,6 +125,19 @@ jobs:
             -allowProvisioningUpdates \
             -quiet
 
+      - name: Upload debug symbols to Sentry
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORGANIZATION_KEY: ${{ secrets.SENTRY_ORGANIZATION_KEY }}
+          SENTRY_PROJECT_KEY: ${{ secrets.SENTRY_PROJECT_KEY }}
+        run: |
+          sentry-cli debug-files upload \
+            --auth-token $SENTRY_AUTH_TOKEN \
+            --include-sources \
+            --org $SENTRY_ORGANIZATION_KEY \
+            --project $SENTRY_PROJECT_KEY \
+            $PWD/Build/ProductivityTest.xcarchive/dSYMs
+
       - name: Decode App Connect Store API Key
         env:
           APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
