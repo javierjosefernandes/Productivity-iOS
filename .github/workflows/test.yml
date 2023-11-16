@@ -73,7 +73,6 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          token: $CODECOV_TOKEN
           files: $RUNNER_TEMP/Reports
 
       - name: Install Apple certificate and provisioning profile
