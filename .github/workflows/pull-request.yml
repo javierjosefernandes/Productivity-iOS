@@ -1,0 +1,77 @@
+name: Pull Request
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  test:
+    runs-on: macos-latest
+    environment: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: Run SwiftLint
+        run: swiftlint --strict
+
+      - name: Create configuration file
+        run: cp Productivity/Configurations/Plist/ConfigTemplate.plist Productivity/Configurations/Plist/ConfigTest.plist
+
+      - name: Fill in configuration file
+        env:
+          OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
+          MIXPANEL_PROJECT_TOKEN: ${{ secrets.MIXPANEL_PROJECT_TOKEN }}
+          SENTRY_DNS: ${{ secrets.SENTRY_DNS }}
+          SENTRY_ENVIRONMENT: ${{ vars.SENTRY_ENVIRONMENT }}
+        run: |
+          /usr/libexec/PlistBuddy -c "Set :OpenAIAPIKey '${OPEN_AI_API_KEY}'" Productivity/Configurations/Plist/ConfigTest.plist
+          /usr/libexec/PlistBuddy -c "Set :MixpanelProjectToken '${MIXPANEL_PROJECT_TOKEN}'" Productivity/Configurations/Plist/ConfigTest.plist
+          /usr/libexec/PlistBuddy -c "Set :SentryDNS '${SENTRY_DNS}'" Productivity/Configurations/Plist/ConfigTest.plist
+          /usr/libexec/PlistBuddy -c "Set :SentryEnvironment '${SENTRY_ENVIRONMENT}'" Productivity/Configurations/Plist/ConfigTest.plist
+
+      - name: Run unit tests with code coverage
+        run: |
+          xcodebuild test \
+            -project Productivity.xcodeproj \
+            -scheme ProductivityTest \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
+            -resultBundlePath result \
+            -enableCodeCoverage YES \
+            -quiet
+
+      - name: Make xccov-to-sonarqube-generic.sh executable
+        run: chmod +x ./xccov-to-sonarqube-generic.sh
+
+      - name: Convert xcresult to SonarQube generic coverage
+        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
+
+      - name: Set up SonarScanner
+        run: brew install sonar-scanner
+
+      - name: SonarCloud scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_ORGANIZATION_KEY: ${{ secrets.SONAR_ORGANIZATION_KEY }}
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+            -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=$SONAR_TOKEN \
+            -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml \
+            -Dsonar.c.file.suffixes=- \
+            -Dsonar.cpp.file.suffixes=- \
+            -Dsonar.objc.file.suffixes=- \
+            -Dsonar.inclusions=Productivity/Sources/**/*

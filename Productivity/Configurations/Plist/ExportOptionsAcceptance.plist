@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   ExportOptionsProduction.plist
+   Productivity
+
+   Created by Javier Fernandes on 11/11/2023.
+   Copyright (c) 2023 ___ORGANIZATIONNAME___. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>method</key>
+        <string>app-store</string>
+        <key>provisioningProfiles</key>
+        <dict>
+            <key>com.javierfernandes.Productivity.acceptance</key>
+            <string>Productivity Acceptance Provisioning Profile</string>
+        </dict>
+        <key>teamID</key>
+        <string>Y4PWVF3LZ8</string>
+        <key>uploadSymbols</key>
+        <true/>
+    </dict>
+</plist>
