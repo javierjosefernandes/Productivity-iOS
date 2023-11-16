@@ -98,9 +98,13 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
       - name: Increment build version
+        env:
+          APP_STORE_CONNECT_BASE_BUILD_NUMBER: ${{ secrets.APP_STORE_CONNECT_BASE_BUILD_NUMBER }}
         run: |
-          agvtool new-version -all ${{ github.run_number }}
-          echo "New build number set to: ${{ github.run_number }}"
+          BASE_BUILD_NUMBER=$(($APP_STORE_CONNECT_BASE_BUILD_NUMBER))
+          FINAL_BUILD_NUMBER=$((BASE_BUILD_NUMBER + ${{ github.run_number }}))
+          agvtool new-version -all $FINAL_BUILD_NUMBER
+          echo "New build number set to: $FINAL_BUILD_NUMBER"
 
       - name: Build and archive app
         run: |
