@@ -42,7 +42,9 @@ jobs:
             -quiet
 
       - name: Install xcresult parser
-        run: brew install xcresultparser
+        run: |
+          brew tap a7ex/homebrew-formulae
+          brew install xcresultparser
 
       - name: Parse xcresult for Codecov
         run: |
@@ -60,13 +62,13 @@ jobs:
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
-      - name: Convert xcresult to SonarQube generic coverage
+      - name: Parse xcresult for Sonar
         run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/Reports/result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
 
       - name: Install Sonar Scanner
         run: brew install sonar-scanner
 
-      - name: SonarCloud scan
+      - name: Sonar scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
