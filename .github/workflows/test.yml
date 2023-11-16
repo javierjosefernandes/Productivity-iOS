@@ -37,7 +37,6 @@ jobs:
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
-            # -resultBundlePath $RUNNER_TEMP/Reports/result \
             -enableCodeCoverage YES \
             -quiet
 
