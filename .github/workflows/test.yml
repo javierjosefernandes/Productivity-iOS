@@ -37,22 +37,15 @@ jobs:
             -scheme ProductivityTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,OS=latest,name=iPhone 14' \
+            -resultBundlePath result \
             -enableCodeCoverage YES \
             -quiet
-
-      - name: Upload coverage report to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
-          name: codecov-umbrella
-          verbose: true
 
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
       - name: Parse xcresult for Sonar
-        run: ./xccov-to-sonarqube-generic.sh $RUNNER_TEMP/Reports/result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
+        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
 
       - name: Install Sonar Scanner
         run: brew install sonar-scanner

@@ -52,13 +52,13 @@ jobs:
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
-      - name: Convert xcresult to SonarQube generic coverage
-        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
+      - name: Parse xcresult for Sonar
+        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
 
-      - name: Set up SonarScanner
+      - name: Install Sonar Scanner
         run: brew install sonar-scanner
 
-      - name: SonarCloud scan
+      - name: Upload coverage report to Sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
@@ -70,7 +70,7 @@ jobs:
             -Dsonar.sources=. \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.token=$SONAR_TOKEN \
-            -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml \
+            -Dsonar.coverageReportPaths=$RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml \
             -Dsonar.c.file.suffixes=- \
             -Dsonar.cpp.file.suffixes=- \
             -Dsonar.objc.file.suffixes=- \
