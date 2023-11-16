@@ -45,7 +45,7 @@ jobs:
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
       - name: Parse xcresult for Sonar
-        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
+        run: ./xccov-to-sonarqube-generic.sh ./result.xcresult > $RUNNER_TEMP/Reports/sonarqube-generic-coverage.xml
 
       - name: Install Sonar Scanner
         run: brew install sonar-scanner
