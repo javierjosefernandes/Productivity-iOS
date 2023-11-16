@@ -130,6 +130,9 @@ jobs:
             -allowProvisioningUpdates \
             -quiet
 
+      - name: Install sentry-cli
+        run: brew install getsentry/tools/sentry-cli
+
       - name: Upload debug symbols to Sentry
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
