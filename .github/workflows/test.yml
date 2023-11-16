@@ -63,7 +63,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: $RUNNER_TEMP/Reports/
-          files: ./codecov-coverage.xml
           fail_ci_if_error: true
           name: codecov-umbrella
           verbose: true
