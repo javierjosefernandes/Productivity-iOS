@@ -25,30 +25,18 @@
 		D0306C272AFE655D00238219 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306C262AFE655D00238219 /* AppConfig.swift */; };
 		D0306C282AFE655D00238219 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306C262AFE655D00238219 /* AppConfig.swift */; };
 		D0306C292AFE655D00238219 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0306C262AFE655D00238219 /* AppConfig.swift */; };
+		D04454822B0A21A900F008FE /* FlagsmithClient in Frameworks */ = {isa = PBXBuildFile; productRef = D04454812B0A21A900F008FE /* FlagsmithClient */; };
+		D04454842B0A21B400F008FE /* FlagsmithClient in Frameworks */ = {isa = PBXBuildFile; productRef = D04454832B0A21B400F008FE /* FlagsmithClient */; };
+		D04454862B0A21B900F008FE /* FlagsmithClient in Frameworks */ = {isa = PBXBuildFile; productRef = D04454852B0A21B900F008FE /* FlagsmithClient */; };
 		D06718352B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D06718362B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D06718372B04114700749FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06718342B04114700749FED /* AppDelegate.swift */; };
 		D07696952B066C9900A4F03B /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = D07696942B066C9900A4F03B /* Mixpanel */; };
 		D07696982B066CA400A4F03B /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D07696972B066CA400A4F03B /* SentrySwiftUI */; };
-		D076969B2B066CC200A4F03B /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D076969A2B066CC200A4F03B /* AWSAPIPlugin */; };
-		D076969D2B066CC200A4F03B /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D076969C2B066CC200A4F03B /* AWSCognitoAuthPlugin */; };
-		D076969F2B066CC200A4F03B /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D076969E2B066CC200A4F03B /* AWSDataStorePlugin */; };
-		D07696A12B066CC200A4F03B /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = D07696A02B066CC200A4F03B /* AWSPluginsCore */; };
-		D07696A32B066CC200A4F03B /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = D07696A22B066CC200A4F03B /* Amplify */; };
 		D07696A52B066D0900A4F03B /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = D07696A42B066D0900A4F03B /* Mixpanel */; };
 		D07696A72B066D0900A4F03B /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D07696A62B066D0900A4F03B /* SentrySwiftUI */; };
-		D07696A92B066D0900A4F03B /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = D07696A82B066D0900A4F03B /* Amplify */; };
-		D07696AB2B066D0900A4F03B /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D07696AA2B066D0900A4F03B /* AWSAPIPlugin */; };
-		D07696AD2B066D0900A4F03B /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D07696AC2B066D0900A4F03B /* AWSCognitoAuthPlugin */; };
-		D07696AF2B066D0900A4F03B /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D07696AE2B066D0900A4F03B /* AWSDataStorePlugin */; };
-		D07696B12B066D0900A4F03B /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = D07696B02B066D0900A4F03B /* AWSPluginsCore */; };
 		D07696B32B066D2500A4F03B /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = D07696B22B066D2500A4F03B /* Mixpanel */; };
 		D07696B52B066D2500A4F03B /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D07696B42B066D2500A4F03B /* SentrySwiftUI */; };
-		D07696B72B066D2500A4F03B /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = D07696B62B066D2500A4F03B /* Amplify */; };
-		D07696B92B066D2500A4F03B /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D07696B82B066D2500A4F03B /* AWSAPIPlugin */; };
-		D07696BB2B066D2500A4F03B /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D07696BA2B066D2500A4F03B /* AWSCognitoAuthPlugin */; };
-		D07696BD2B066D2500A4F03B /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D07696BC2B066D2500A4F03B /* AWSDataStorePlugin */; };
-		D07696BF2B066D2500A4F03B /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = D07696BE2B066D2500A4F03B /* AWSPluginsCore */; };
 		D0A41D062B012A7100AA785A /* SourceryOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A41D052B012A7100AA785A /* SourceryOutput.swift */; };
 		D0B066F32B055835008FFEC4 /* ProductivityTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B066F22B055835008FFEC4 /* ProductivityTestTests.swift */; };
 /* End PBXBuildFile section */
@@ -97,13 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D076969B2B066CC200A4F03B /* AWSAPIPlugin in Frameworks */,
-				D07696A32B066CC200A4F03B /* Amplify in Frameworks */,
+				D04454822B0A21A900F008FE /* FlagsmithClient in Frameworks */,
 				D07696952B066C9900A4F03B /* Mixpanel in Frameworks */,
-				D07696A12B066CC200A4F03B /* AWSPluginsCore in Frameworks */,
 				D07696982B066CA400A4F03B /* SentrySwiftUI in Frameworks */,
-				D076969F2B066CC200A4F03B /* AWSDataStorePlugin in Frameworks */,
-				D076969D2B066CC200A4F03B /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,11 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D07696AB2B066D0900A4F03B /* AWSAPIPlugin in Frameworks */,
-				D07696B12B066D0900A4F03B /* AWSPluginsCore in Frameworks */,
-				D07696AD2B066D0900A4F03B /* AWSCognitoAuthPlugin in Frameworks */,
-				D07696A92B066D0900A4F03B /* Amplify in Frameworks */,
-				D07696AF2B066D0900A4F03B /* AWSDataStorePlugin in Frameworks */,
+				D04454842B0A21B400F008FE /* FlagsmithClient in Frameworks */,
 				D07696A52B066D0900A4F03B /* Mixpanel in Frameworks */,
 				D07696A72B066D0900A4F03B /* SentrySwiftUI in Frameworks */,
 			);
@@ -125,11 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D07696B92B066D2500A4F03B /* AWSAPIPlugin in Frameworks */,
-				D07696BF2B066D2500A4F03B /* AWSPluginsCore in Frameworks */,
-				D07696BB2B066D2500A4F03B /* AWSCognitoAuthPlugin in Frameworks */,
-				D07696B72B066D2500A4F03B /* Amplify in Frameworks */,
-				D07696BD2B066D2500A4F03B /* AWSDataStorePlugin in Frameworks */,
+				D04454862B0A21B900F008FE /* FlagsmithClient in Frameworks */,
 				D07696B32B066D2500A4F03B /* Mixpanel in Frameworks */,
 				D07696B52B066D2500A4F03B /* SentrySwiftUI in Frameworks */,
 			);
@@ -302,11 +278,7 @@
 			packageProductDependencies = (
 				D07696942B066C9900A4F03B /* Mixpanel */,
 				D07696972B066CA400A4F03B /* SentrySwiftUI */,
-				D076969A2B066CC200A4F03B /* AWSAPIPlugin */,
-				D076969C2B066CC200A4F03B /* AWSCognitoAuthPlugin */,
-				D076969E2B066CC200A4F03B /* AWSDataStorePlugin */,
-				D07696A02B066CC200A4F03B /* AWSPluginsCore */,
-				D07696A22B066CC200A4F03B /* Amplify */,
+				D04454812B0A21A900F008FE /* FlagsmithClient */,
 			);
 			productName = Productivity;
 			productReference = D0306BC82AFE5B1600238219 /* ProductivityTest.app */;
@@ -328,11 +300,7 @@
 			packageProductDependencies = (
 				D07696A42B066D0900A4F03B /* Mixpanel */,
 				D07696A62B066D0900A4F03B /* SentrySwiftUI */,
-				D07696A82B066D0900A4F03B /* Amplify */,
-				D07696AA2B066D0900A4F03B /* AWSAPIPlugin */,
-				D07696AC2B066D0900A4F03B /* AWSCognitoAuthPlugin */,
-				D07696AE2B066D0900A4F03B /* AWSDataStorePlugin */,
-				D07696B02B066D0900A4F03B /* AWSPluginsCore */,
+				D04454832B0A21B400F008FE /* FlagsmithClient */,
 			);
 			productName = Productivity;
 			productReference = D0306C072AFE5CE600238219 /* ProductivityAcceptance.app */;
@@ -354,11 +322,7 @@
 			packageProductDependencies = (
 				D07696B22B066D2500A4F03B /* Mixpanel */,
 				D07696B42B066D2500A4F03B /* SentrySwiftUI */,
-				D07696B62B066D2500A4F03B /* Amplify */,
-				D07696B82B066D2500A4F03B /* AWSAPIPlugin */,
-				D07696BA2B066D2500A4F03B /* AWSCognitoAuthPlugin */,
-				D07696BC2B066D2500A4F03B /* AWSDataStorePlugin */,
-				D07696BE2B066D2500A4F03B /* AWSPluginsCore */,
+				D04454852B0A21B900F008FE /* FlagsmithClient */,
 			);
 			productName = Productivity;
 			productReference = D0306C142AFE5CEA00238219 /* ProductivityProduction.app */;
@@ -413,7 +377,7 @@
 			packageReferences = (
 				D07696932B066C9900A4F03B /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 				D07696962B066CA400A4F03B /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
-				D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */,
+				D04454802B0A21A900F008FE /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */,
 			);
 			productRefGroup = D0306BC92AFE5B1600238219 /* Products */;
 			projectDirPath = "";
@@ -1017,6 +981,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D04454802B0A21A900F008FE /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flagsmith/flagsmith-ios-client.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
 		D07696932B066C9900A4F03B /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
@@ -1033,17 +1005,24 @@
 				minimumVersion = 8.15.2;
 			};
 		};
-		D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.22.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D04454812B0A21A900F008FE /* FlagsmithClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D04454802B0A21A900F008FE /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */;
+			productName = FlagsmithClient;
+		};
+		D04454832B0A21B400F008FE /* FlagsmithClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D04454802B0A21A900F008FE /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */;
+			productName = FlagsmithClient;
+		};
+		D04454852B0A21B900F008FE /* FlagsmithClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D04454802B0A21A900F008FE /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */;
+			productName = FlagsmithClient;
+		};
 		D07696942B066C9900A4F03B /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D07696932B066C9900A4F03B /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
@@ -1053,31 +1032,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D07696962B066CA400A4F03B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = SentrySwiftUI;
-		};
-		D076969A2B066CC200A4F03B /* AWSAPIPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSAPIPlugin;
-		};
-		D076969C2B066CC200A4F03B /* AWSCognitoAuthPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSCognitoAuthPlugin;
-		};
-		D076969E2B066CC200A4F03B /* AWSDataStorePlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSDataStorePlugin;
-		};
-		D07696A02B066CC200A4F03B /* AWSPluginsCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSPluginsCore;
-		};
-		D07696A22B066CC200A4F03B /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = Amplify;
 		};
 		D07696A42B066D0900A4F03B /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1089,31 +1043,6 @@
 			package = D07696962B066CA400A4F03B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = SentrySwiftUI;
 		};
-		D07696A82B066D0900A4F03B /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = Amplify;
-		};
-		D07696AA2B066D0900A4F03B /* AWSAPIPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSAPIPlugin;
-		};
-		D07696AC2B066D0900A4F03B /* AWSCognitoAuthPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSCognitoAuthPlugin;
-		};
-		D07696AE2B066D0900A4F03B /* AWSDataStorePlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSDataStorePlugin;
-		};
-		D07696B02B066D0900A4F03B /* AWSPluginsCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSPluginsCore;
-		};
 		D07696B22B066D2500A4F03B /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D07696932B066C9900A4F03B /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
@@ -1123,31 +1052,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D07696962B066CA400A4F03B /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = SentrySwiftUI;
-		};
-		D07696B62B066D2500A4F03B /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = Amplify;
-		};
-		D07696B82B066D2500A4F03B /* AWSAPIPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSAPIPlugin;
-		};
-		D07696BA2B066D2500A4F03B /* AWSCognitoAuthPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSCognitoAuthPlugin;
-		};
-		D07696BC2B066D2500A4F03B /* AWSDataStorePlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSDataStorePlugin;
-		};
-		D07696BE2B066D2500A4F03B /* AWSPluginsCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D07696992B066CC200A4F03B /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSPluginsCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

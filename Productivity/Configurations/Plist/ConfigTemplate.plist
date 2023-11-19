@@ -10,5 +10,7 @@
 	<string></string>
 	<key>SentryEnvironment</key>
 	<string></string>
+	<key>FlagsmithEnvironmentKey</key>
+	<string></string>
 </dict>
 </plist>

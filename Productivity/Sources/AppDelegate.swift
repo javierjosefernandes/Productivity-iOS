@@ -6,12 +6,7 @@
 //
 
 import Amplify
-import AWSAPIPlugin
-import AWSCognitoAuthPlugin
-import AWSCognitoIdentity
-import AWSCognitoIdentityProvider
-import AWSDataStorePlugin
-import AWSPluginsCore
+import FlagsmithClient
 import Foundation
 import Mixpanel
 import Sentry
@@ -35,6 +30,25 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 options.environment = sentryEnv
                 options.debug = sentryEnv == "development"
                 options.enableTracing = sentryEnv == "production"
+            }
+        }
+
+        if let flagsmithEnvKey = AppConfig.shared.stringValue(forKey: "FlagsmithEnvironmentKey") {
+            Flagsmith.shared.apiKey = flagsmithEnvKey
+
+            Flagsmith.shared.getFeatureFlags { result in
+                switch result {
+                case .success(let flags):
+                    for flag in flags {
+                        let name = flag.feature.name
+                        let value = flag.value
+                        let enabled = flag.enabled
+                        print(name, "= enabled:", enabled, "value:", value)
+                    }
+
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
 

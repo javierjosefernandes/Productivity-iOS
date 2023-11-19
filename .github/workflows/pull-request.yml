@@ -32,11 +32,13 @@ jobs:
           MIXPANEL_PROJECT_TOKEN: ${{ secrets.MIXPANEL_PROJECT_TOKEN }}
           SENTRY_DNS: ${{ secrets.SENTRY_DNS }}
           SENTRY_ENVIRONMENT: ${{ vars.SENTRY_ENVIRONMENT }}
+          FLAGSMITH_ENVIRONMENT_KEY: ${{ secrets.FLAGSMITH_ENVIRONMENT_KEY }}
         run: |
           /usr/libexec/PlistBuddy -c "Set :OpenAIAPIKey '${OPEN_AI_API_KEY}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :MixpanelProjectToken '${MIXPANEL_PROJECT_TOKEN}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :SentryDNS '${SENTRY_DNS}'" Productivity/Configurations/Plist/ConfigTest.plist
           /usr/libexec/PlistBuddy -c "Set :SentryEnvironment '${SENTRY_ENVIRONMENT}'" Productivity/Configurations/Plist/ConfigTest.plist
+          /usr/libexec/PlistBuddy -c "Set :FlagsmithEnvironmentKey '${FLAGSMITH_ENVIRONMENT_KEY}'" Productivity/Configurations/Plist/ConfigTest.plist
 
       - name: Run unit tests with code coverage
         run: |
