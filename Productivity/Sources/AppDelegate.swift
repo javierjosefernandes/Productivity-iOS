@@ -5,7 +5,6 @@
 //  Created by Javier Fernandes on 14/11/2023.
 //
 
-import Amplify
 import FlagsmithClient
 import Foundation
 import Mixpanel
