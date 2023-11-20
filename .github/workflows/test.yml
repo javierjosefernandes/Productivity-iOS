@@ -43,6 +43,11 @@ jobs:
             -enableCodeCoverage YES \
             -quiet
 
+      - uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults.xcresult
+        if: success() || failure()
+
       - name: Make xccov-to-sonarqube-generic.sh executable
         run: chmod +x ./xccov-to-sonarqube-generic.sh
 
