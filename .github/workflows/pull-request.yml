@@ -51,9 +51,10 @@ jobs:
             -enableCodeCoverage YES \
             -quiet
 
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - name: Generate test report
+        uses: kishikawakatsumi/xcresulttool@v1
         with:
-          path: TestResults.xcresult
+          path: result.xcresult
         if: success() || failure()
 
       - name: Make xccov-to-sonarqube-generic.sh executable
