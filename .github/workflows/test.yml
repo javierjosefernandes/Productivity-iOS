@@ -48,32 +48,32 @@ jobs:
           path: TestResults.xcresult
         if: success() || failure()
 
-      - name: Make xccov-to-sonarqube-generic.sh executable
-        run: chmod +x ./xccov-to-sonarqube-generic.sh
+      # - name: Make xccov-to-sonarqube-generic.sh executable
+      #   run: chmod +x ./xccov-to-sonarqube-generic.sh
 
-      - name: Parse xcresult for Sonar
-        run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
+      # - name: Parse xcresult for Sonar
+      #   run: ./xccov-to-sonarqube-generic.sh result.xcresult > $RUNNER_TEMP/sonarqube-generic-coverage.xml
 
-      - name: Install Sonar Scanner
-        run: brew install sonar-scanner
+      # - name: Install Sonar Scanner
+      #   run: brew install sonar-scanner
 
-      - name: Upload coverage report to Sonar
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-          SONAR_ORGANIZATION_KEY: ${{ secrets.SONAR_ORGANIZATION_KEY }}
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=$SONAR_PROJECT_KEY \
-            -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
-            -Dsonar.sources=. \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.token=$SONAR_TOKEN \
-            -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml \
-            -Dsonar.c.file.suffixes=- \
-            -Dsonar.cpp.file.suffixes=- \
-            -Dsonar.objc.file.suffixes=- \
-            -Dsonar.inclusions=Productivity/Sources/**/*
+      # - name: Upload coverage report to Sonar
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+      #     SONAR_ORGANIZATION_KEY: ${{ secrets.SONAR_ORGANIZATION_KEY }}
+      #   run: |
+      #     sonar-scanner \
+      #       -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+      #       -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
+      #       -Dsonar.sources=. \
+      #       -Dsonar.host.url=https://sonarcloud.io \
+      #       -Dsonar.token=$SONAR_TOKEN \
+      #       -Dsonar.coverageReportPaths=$RUNNER_TEMP/sonarqube-generic-coverage.xml \
+      #       -Dsonar.c.file.suffixes=- \
+      #       -Dsonar.cpp.file.suffixes=- \
+      #       -Dsonar.objc.file.suffixes=- \
+      #       -Dsonar.inclusions=Productivity/Sources/**/*
 
       - name: Install Apple certificate and provisioning profile
         env:
